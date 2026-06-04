@@ -1,0 +1,535 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>General Safe - Sicherheit auf höchstem Niveau</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    
+    <script>
+        // Apply theme class immediately to avoid FOUC
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "var(--primary)",
+                        "primary-container": "var(--primary-container)",
+                        "on-primary-container": "var(--on-primary-container)",
+                        "status-success": "#10B981",
+                        "on-tertiary-fixed": "#181c22",
+                        "secondary-container": "#43474d",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1d2021",
+                        "secondary-fixed": "#e0e2e9",
+                        "background": "#111415",
+                        "on-secondary-container": "#b2b5bc",
+                        "surface-bright": "#373a3b",
+                        "tertiary": "#c3c6cf",
+                        "midnight-blue": "#101827",
+                        "surface-dim": "#111415",
+                        "surface-container-low": "#191c1d",
+                        "surface-variant": "#323536",
+                        "charcoal-deep": "#121212",
+                        "on-secondary-fixed": "#181c21",
+                        "surface-tint": "#8fcdff",
+                        "secondary-fixed-dim": "#c3c6cd",
+                        "surface": "#111415",
+                        "tertiary-fixed": "#dfe2eb",
+                        "primary-fixed-dim": "#8fcdff",
+                        "surface-container-lowest": "#0c0f10",
+                        "on-primary-fixed-variant": "#004b71",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#bec7d2",
+                        "inverse-on-surface": "#2e3132",
+                        "inverse-primary": "#006495",
+                        "on-secondary": "#2d3136",
+                        "tertiary-fixed-dim": "#c3c6cf",
+                        "inverse-surface": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#43474d",
+                        "on-tertiary-container": "#262a30",
+                        "error-container": "#93000a",
+                        "secondary": "#c3c6cd",
+                        "on-primary": "#003450",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary-fixed-variant": "#43474e",
+                        "primary-fixed": "#cbe6ff",
+                        "on-primary-fixed": "#001e30",
+                        "on-tertiary": "#2d3137",
+                        "steel-gray": "#94A3B8",
+                        "on-surface": "#e1e3e4",
+                        "on-background": "#e1e3e4",
+                        "surface-container-highest": "#323536",
+                        "tertiary-container": "#8d9199",
+                        "outline-variant": "#3f4850",
+                        "outline": "#89929b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #0090d4;
+            --primary-container: #e0f2fe;
+            --on-primary-container: #0369a1;
+            --grid-color: #9ca3af;
+        }
+        .dark {
+            --primary: #8fcdff;
+            --primary-container: #1e99dd;
+            --on-primary-container: #002d46;
+            --grid-color: #3f4850;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background-color: #ffffff; 
+            color: #111827; 
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark body { 
+            background-color: #121212; 
+            color: #e1e3e4; 
+        }
+        
+        /* Smooth general transitions for dark mode toggles */
+        header, section, footer, div, a, button, h1, h2, h3, h4, p, span, img {
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .dark .glass-card {
+            background: rgba(16, 24, 39, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: none;
+        }
+
+        /* Hover underline animation for navigation links */
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        /* Theme switch spin animation */
+        #theme-toggle span {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #theme-toggle:hover span {
+            transform: rotate(45deg);
+        }
+
+        /* Scroll Reveal effects */
+        .reveal-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+        .reveal-fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-charcoal-deep text-gray-900 dark:text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container">
+
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full bg-white dark:bg-charcoal-deep border-b border-gray-200 dark:border-outline-variant/20 transition-all duration-300" id="main-nav">
+    <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-50">
+        <!-- Brand -->
+        <a class="flex items-center gap-3 group hover:opacity-90 transition-all duration-300" href="#">
+            <img alt="General Safe Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300" src="logo.png"/>
+            <span class="font-headline-lg-mobile md:font-headline-lg text-headline-lg-mobile md:text-headline-lg uppercase tracking-[0.18em] transition-colors duration-300">
+                <span class="font-light text-gray-800 dark:text-gray-200">General</span><span class="font-bold text-primary">Safe</span>
+            </span>
+        </a>
+        <!-- Navigation Links (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="nav-link font-body-md text-body-md font-label-caps text-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#leistungen">Leistungen</a>
+            <a class="nav-link font-body-md text-body-md font-label-caps text-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#ueber-uns">Über uns</a>
+            <a class="nav-link font-body-md text-body-md font-label-caps text-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#karriere">Karriere</a>
+        </nav>
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+
+            <!-- Dark/Light Mode Switch Button -->
+            <button id="theme-toggle" class="p-2 text-primary hover:bg-gray-100 dark:hover:bg-white/5 rounded-full transition-all duration-300 active:scale-95 ease-in-out" aria-label="Theme umschalten">
+                <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+            </button>
+
+            <button class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-3 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md dark:shadow-[0_0_15px_rgba(30,153,221,0.2)]">Jetzt anfragen</button>
+            
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden p-2 text-gray-900 dark:text-on-surface" id="mobile-menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-white dark:bg-charcoal-deep transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-28 px-margin-mobile gap-6">
+    <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#leistungen">Leistungen</a>
+    <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#ueber-uns">Über uns</a>
+    <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="#karriere">Karriere</a>
+    <div class="mt-8 flex flex-col gap-4">
+        <button class="w-full bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-4 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md">Jetzt anfragen</button>
+
+    </div>
+</div>
+
+<main>
+    <!-- Hero Section -->
+    <section class="relative min-h-[85vh] flex items-center justify-center overflow-hidden pt-20 pb-32">
+        <!-- Background Image with Overlay -->
+        <div class="absolute inset-0 z-0 bg-gray-50 dark:bg-charcoal-deep transition-colors duration-300">
+            <img alt="Security Professional observing monitors" class="w-full h-full object-cover object-center opacity-20 dark:opacity-40 mix-blend-multiply dark:mix-blend-luminosity transition-opacity duration-300" src="hero.jpg"/>
+            <div class="absolute inset-0 bg-gradient-to-t from-gray-100 via-white/80 to-transparent dark:from-charcoal-deep dark:via-charcoal-deep/80 dark:to-transparent transition-colors duration-300"></div>
+            <div class="absolute inset-0 bg-gradient-to-r from-white via-white/50 to-transparent dark:from-charcoal-deep dark:via-charcoal-deep/50 dark:to-transparent transition-colors duration-300"></div>
+        </div>
+        <div class="relative z-10 w-full max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-gutter items-center">
+            <div class="reveal-fade-up md:col-span-8 lg:col-span-7 flex flex-col items-start gap-8">
+                <div class="inline-flex items-center gap-2 bg-white/80 dark:bg-midnight-blue/80 border border-primary/30 px-3 py-1.5 rounded-full backdrop-blur-md shadow-sm dark:shadow-none transition-all duration-300">
+                    <span class="w-2 h-2 rounded-full bg-status-success animate-pulse"></span>
+                    <span class="font-label-caps text-label-caps text-primary uppercase">Einsatzbereit - 24/7 Service</span>
+                </div>
+                <h1 class="font-headline-xl text-headline-xl text-gray-900 dark:text-on-surface transition-colors duration-300">
+                    Sicherheit auf <span class="text-primary">höchstem Niveau.</span><br/>
+                    Präzise. Diskret. Verlässlich.
+                </h1>
+                <p class="font-body-md text-body-md text-gray-600 dark:text-on-surface-variant max-w-xl text-lg transition-colors duration-300">
+                    Exzellenz in Schutz und Bewachung für anspruchsvolle Privatkunden und Unternehmen. Wir bieten kompromisslose Sicherheit durch hochqualifiziertes Personal und modernste Technik.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 mt-4">
+                    <button class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-8 py-4 rounded hover:bg-blue-600 dark:hover:bg-primary transition-all shadow-lg hover:shadow-xl dark:shadow-[0_0_20px_rgba(30,153,221,0.3)] dark:hover:shadow-[0_0_30px_rgba(30,153,221,0.5)]">
+                        Jetzt anfragen
+                    </button>
+                    <button class="border border-gray-300 dark:border-on-surface/20 text-gray-700 dark:text-on-surface font-label-caps text-label-caps uppercase px-8 py-4 rounded hover:bg-gray-50 dark:hover:bg-surface-variant transition-colors bg-white/50 dark:bg-transparent backdrop-blur-sm">
+                        Unsere Leistungen
+                    </button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Trust Indicators Bento -->
+    <section class="relative z-20 -mt-24 pb-24">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="reveal-fade-up glass-card rounded-xl p-8 flex flex-col gap-4 transform hover:-translate-y-1.5 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] hover:border-primary/50 dark:hover:border-primary/40 transition-all duration-300 group">
+                    <div class="w-12 h-12 rounded bg-gray-100 dark:bg-surface-variant flex items-center justify-center text-primary group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-3xl">verified_user</span>
+                    </div>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface transition-colors">Hochqualifiziertes Personal</h3>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant transition-colors">Strenge Auswahlverfahren und kontinuierliche Schulungen garantieren ein Team der Spitzenklasse.</p>
+                </div>
+                <div class="reveal-fade-up glass-card rounded-xl p-8 flex flex-col gap-4 transform hover:-translate-y-1.5 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] hover:border-primary/50 dark:hover:border-primary/40 transition-all duration-300 group" style="transition-delay: 150ms;">
+                    <div class="w-12 h-12 rounded bg-gray-100 dark:bg-surface-variant flex items-center justify-center text-primary group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-3xl">memory</span>
+                    </div>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface transition-colors">Moderne Technik</h3>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant transition-colors">Einsatz modernster Überwachungs- und Kommunikationstechnologien für lückenlose Sicherheit.</p>
+                </div>
+                <div class="reveal-fade-up glass-card rounded-xl p-8 flex flex-col gap-4 transform hover:-translate-y-1.5 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] hover:border-primary/50 dark:hover:border-primary/40 transition-all duration-300 group" style="transition-delay: 300ms;">
+                    <div class="w-12 h-12 rounded bg-gray-100 dark:bg-surface-variant flex items-center justify-center text-primary group-hover:bg-primary/10 dark:group-hover:bg-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-3xl">forum</span>
+                    </div>
+                    <h3 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface transition-colors">Transparente Kommunikation</h3>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant transition-colors">Klare Abstimmung und diskretes Reporting halten Sie jederzeit auf dem neuesten Stand.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leistungen Section -->
+    <section class="py-24 bg-gray-50 dark:bg-surface-dim relative border-t border-gray-200 dark:border-outline-variant/10 transition-colors duration-300" id="leistungen">
+        <div class="absolute inset-0 opacity-10 dark:opacity-20" style="background-image: radial-gradient(var(--grid-color) 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+                <div class="max-w-2xl">
+                    <h2 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Unser Portfolio</h2>
+                    <h3 class="font-headline-lg text-headline-lg text-gray-900 dark:text-on-surface transition-colors">Umfassende Sicherheitslösungen für jeden Bedarf.</h3>
+                </div>
+                <button class="border border-gray-300 dark:border-on-surface/20 text-gray-700 dark:text-on-surface bg-white dark:bg-transparent font-label-caps text-label-caps uppercase px-6 py-3 rounded hover:bg-gray-100 dark:hover:bg-surface-variant transition-colors whitespace-nowrap shadow-sm dark:shadow-none">
+                    Alle ansehen
+                </button>
+            </div>
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Service Card 1 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">directions_car</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Revierfahrer</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow transition-colors">Präventive Bestreifung und schnelle Intervention bei Alarm. Wir sichern weitläufige Areale durch unberechenbare Patrouillen.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Service Card 2 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col" style="transition-delay: 100ms;">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">visibility</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Detektei &amp; Ermittlungsdienst</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow transition-colors">Diskrete Ermittlungen, Observationen und gerichtsverwertbare Beweissicherung für Unternehmen und Privatpersonen.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Service Card 3 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col" style="transition-delay: 200ms;">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">meeting_room</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Doorman</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow transition-colors">Repräsentativer Empfang und Zugangskontrolle für exklusive Boutiquen, Hotels und Unternehmenszentralen. Sicherheit mit Stil.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Service Card 4 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">badge</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Empfangs- und Pförtnerdienst</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow transition-colors">Professionelle Besuchersteuerung, Schlüsselausgabe, Telefon- und Postdienste. Der erste Eindruck für Ihr Unternehmen.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Service Card 5 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col" style="transition-delay: 100ms;">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">location_city</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Objektschutz</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow transition-colors">Lückenlose Überwachung und Absicherung von Immobilien, Baustellen und Industrieanlagen gegen unbefugtes Betreten.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Service Card 6 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col" style="transition-delay: 200ms;">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">shopping_bag</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Ladendetektiv/in</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow transition-colors">Diskrete Prävention und Aufklärung von Diebstählen im Einzelhandel zur Minimierung von Inventurdifferenzen.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+                <!-- Service Card 7 -->
+                <div class="reveal-fade-up bg-white dark:bg-midnight-blue border border-gray-200 dark:border-outline-variant/20 p-8 rounded-lg hover:border-primary/50 dark:hover:border-primary/40 hover:shadow-lg dark:hover:shadow-[0_10px_30px_-10px_rgba(143,205,255,0.15)] transform hover:-translate-y-1.5 transition-all duration-300 group flex flex-col md:col-span-2 lg:col-span-3" style="transition-delay: 150ms;">
+                    <span class="inline-block material-symbols-outlined text-4xl text-primary mb-6 group-hover:scale-110 transition-transform origin-left">festival</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-3 transition-colors">Event- und Veranstaltungsschutz</h4>
+                    <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mb-6 flex-grow max-w-2xl transition-colors">Vom exklusiven VIP-Event bis zur Großveranstaltung: Wir sorgen für einen reibungsverträglichen Ablauf, kontrollieren Zugänge und deeskalieren diskret im Hintergrund. Ein ganzheitliches Sicherheitskonzept für Ihr Event.</p>
+                    <a class="inline-flex items-center gap-2 text-primary font-label-caps text-label-caps uppercase hover:text-blue-700 dark:hover:text-primary-container" href="#">
+                        Details <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Über Uns Section (Bento Layout) -->
+    <section class="py-24 bg-white dark:bg-charcoal-deep transition-colors duration-300" id="ueber-uns">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[minmax(200px,auto)]">
+                <!-- Intro Block -->
+                <div class="reveal-fade-up md:col-span-12 lg:col-span-7 bg-gray-50 dark:bg-midnight-blue rounded-2xl p-10 flex flex-col justify-center border border-gray-200 dark:border-outline-variant/10 shadow-sm dark:shadow-none transition-all duration-300">
+                    <h2 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-4">Über General Safe</h2>
+                    <h3 class="font-headline-lg text-headline-lg text-gray-900 dark:text-on-surface mb-6 transition-colors">Ihr verlässlicher Partner in einer komplexen Welt.</h3>
+                    <p class="font-body-md text-body-md text-gray-600 dark:text-on-surface-variant mb-8 max-w-xl transition-colors">
+                        Seit unserer Gründung stehen wir für ein Sicherheitskonzept, das auf Diskretion, höchster Professionalität und präziser Ausführung basiert. Unser Anspruch ist es, nicht nur zu reagieren, sondern durch vorausschauende Planung Risiken zu minimieren, bevor sie entstehen.
+                    </p>
+                    <div class="mt-auto">
+                        <img alt="General Safe Brand Logo" class="h-16 w-auto opacity-50 grayscale hover:grayscale-0 hover:opacity-100 transition-all duration-500" src="logo.png"/>
+                    </div>
+                </div>
+                <!-- Image Block -->
+                <div class="reveal-fade-up md:col-span-6 lg:col-span-5 rounded-2xl overflow-hidden relative border border-gray-200 dark:border-outline-variant/10 shadow-sm dark:shadow-none min-h-[300px] transition-all duration-300" style="transition-delay: 150ms;">
+                    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZUDUXC9bk_LdJtGlB-IOI8ns4tO96ccJc2ZMxEdsCpXqJM6tckavy5LD_vw9Hgd1eXfHtsCR1xsT9OI5DeuhCuUDWFIW0WlIYkB7WNsXNol5EqutyJ0iQiCi004u56UYaVWs3gkRt7HBQe2jmKi87XfIgrxZS8U7cvi8Ce9yLylU7M09KKBKIvyyfMO6zrNEI33_bEjLS5DJV-qYr06jaMNcgz62tLTeHIMofR549bC0l2u7InBgnMPE7ZuyRcmbkjWVvCM6nOhA');"></div>
+                    <div class="absolute inset-0 bg-white/20 dark:bg-charcoal-deep/40 mix-blend-overlay dark:mix-blend-multiply transition-colors duration-300"></div>
+                </div>
+                <!-- Stat Block 1 -->
+                <div class="reveal-fade-up md:col-span-6 lg:col-span-4 bg-gray-50 dark:bg-surface-container rounded-2xl p-8 flex flex-col justify-center border border-gray-200 dark:border-outline-variant/10 shadow-sm dark:shadow-none transition-all duration-300">
+                    <div class="text-4xl text-primary font-headline-xl mb-2">24/7</div>
+                    <div class="font-label-caps text-label-caps text-gray-500 dark:text-on-surface-variant uppercase transition-colors">Einsatzbereitschaft</div>
+                </div>
+                <!-- Stat Block 2 -->
+                <div class="reveal-fade-up md:col-span-6 lg:col-span-4 bg-gray-50 dark:bg-surface-container rounded-2xl p-8 flex flex-col justify-center border border-gray-200 dark:border-outline-variant/10 shadow-sm dark:shadow-none transition-all duration-300" style="transition-delay: 150ms;">
+                    <div class="text-4xl text-primary font-headline-xl mb-2">100%</div>
+                    <div class="font-label-caps text-label-caps text-gray-500 dark:text-on-surface-variant uppercase transition-colors">Diskretion &amp; Vertraulichkeit</div>
+                </div>
+                <!-- Action Block -->
+                <div class="reveal-fade-up md:col-span-6 lg:col-span-4 bg-primary-container/50 dark:bg-primary-container/10 border border-primary/20 dark:border-primary/30 rounded-2xl p-8 flex flex-col justify-center items-start group hover:bg-primary-container dark:hover:bg-primary-container/20 transition-all cursor-pointer shadow-sm dark:shadow-none" style="transition-delay: 300ms;">
+                    <span class="material-symbols-outlined text-4xl text-primary mb-4">contact_support</span>
+                    <h4 class="font-headline-lg-mobile text-headline-lg-mobile text-gray-900 dark:text-on-surface mb-2 transition-colors">Beratung anfordern</h4>
+                    <p class="font-body-sm text-body-sm text-gray-700 dark:text-on-surface-variant mb-6 transition-colors">Lassen Sie uns über Ihr individuelles Sicherheitskonzept sprechen.</p>
+                    <span class="text-primary font-label-caps text-label-caps uppercase flex items-center gap-2 group-hover:translate-x-2 transition-transform">
+                        Kontakt <span class="material-symbols-outlined text-sm">arrow_forward</span>
+                    </span>
+                </div>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full mt-auto bg-gray-50 dark:bg-surface-container-lowest border-t border-gray-200 dark:border-outline-variant/30 transition-colors duration-300">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+            <a class="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity" href="#">
+                <img alt="General Safe Logo" class="h-8 w-auto" src="logo.png"/>
+                <span class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-[0.18em] transition-colors">
+                    <span class="font-light text-gray-900 dark:text-gray-200">General</span><span class="font-bold text-primary">Safe</span>
+                </span>
+            </a>
+            <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mt-2 max-w-xs transition-colors">
+                Exzellenz, Diskretion und Präzision in allen Sicherheitsfragen.
+            </p>
+        </div>
+        <div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">Impressum</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">Datenschutz</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">Kontakt</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">AGB</a>
+        </div>
+        <div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-gray-200 dark:border-outline-variant/10 text-center md:text-left transition-colors">
+            <p class="font-body-sm text-body-sm text-gray-500 dark:text-on-surface-variant/60 transition-colors">
+                © 2024 General Safe GmbH & Co. KG. Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<script>
+    // Theme toggle logic
+    const themeToggle = document.getElementById('theme-toggle');
+
+    themeToggle.addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('translate-x-0');
+        const iconSpan = mobileMenuBtn.querySelector('span');
+        if (isOpen) {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            iconSpan.textContent = 'menu';
+        } else {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            iconSpan.textContent = 'close';
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuBtn.querySelector('span').textContent = 'menu';
+        });
+    });
+
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        if (window.scrollY > 20) {
+            nav.classList.add('shadow-md', 'dark:shadow-lg', 'bg-white/95', 'dark:bg-charcoal-deep/95', 'backdrop-blur-md');
+            nav.classList.remove('bg-white', 'dark:bg-charcoal-deep');
+        } else {
+            nav.classList.remove('shadow-md', 'dark:shadow-lg', 'bg-white/95', 'dark:bg-charcoal-deep/95', 'backdrop-blur-md');
+            nav.classList.add('bg-white', 'dark:bg-charcoal-deep');
+        }
+    });
+
+    // Intersection Observer for scroll reveal animations
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal-fade-up').forEach((el) => {
+        revealObserver.observe(el);
+    });
+</script>
+</body>
+</html>
