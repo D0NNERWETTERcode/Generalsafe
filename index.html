@@ -448,10 +448,10 @@
             </p>
         </div>
         <div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
-            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">Impressum</a>
-            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">Datenschutz</a>
-            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">Kontakt</a>
-            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#">AGB</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('impressum')">Impressum</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('datenschutz')">Datenschutz</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="#ueber-uns">Kontakt</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="alert('AGB folgen in Kürze.')">AGB</a>
         </div>
         <div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-gray-200 dark:border-outline-variant/10 text-center md:text-left transition-colors">
             <p class="font-body-sm text-body-sm text-gray-500 dark:text-on-surface-variant/60 transition-colors">
@@ -927,10 +927,111 @@
         document.body.style.overflow = '';
     }
 
+    // Legal details data
+    const legalDetails = {
+        impressum: {
+            title: "Impressum",
+            subtitle: "Rechtliche Angaben nach § 5 TMG",
+            icon: "gavel",
+            content: `
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">General Safe GmbH & Co. KG</h4>
+                        <p>Bürgermeister-Schade-Str. 18<br>24232 Schönkirchen</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Vertreten durch</h4>
+                        <p>Geschäftsführer: Ammar Jafar</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Kontakt</h4>
+                        <p>Telefon: folgt.<br>E-Mail: <a href="mailto:info@general-safe.com" class="text-primary hover:underline">info@general-safe.com</a><br>Webseite: <a href="https://www.general-safe.com" target="_blank" class="text-primary hover:underline">www.general-safe.com</a></p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Registereintrag</h4>
+                        <p>Registergericht: Amtsgericht Kiel<br>Registernummer: HRA 12907 K</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Umsatzsteuer-ID</h4>
+                        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>[USt-ID]: folgt.</p>
+                    </div>
+                </div>
+            `
+        },
+        datenschutz: {
+            title: "Datenschutzerklärung",
+            subtitle: "Informationen zum Datenschutz nach DSGVO",
+            icon: "security",
+            content: `
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">1. Verantwortliche Stelle</h4>
+                        <p>General Safe GmbH & Co. KG<br>Bürgermeister-Schade-Str. 18<br>24232 Schönkirchen<br>E-Mail: <a href="mailto:info@general-safe.com" class="text-primary hover:underline">info@general-safe.com</a><br>Tel.: folgt.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">2. Weitergabe von Daten</h4>
+                        <p>Eine Weitergabe Ihrer persönlichen Daten erfolgt nur:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>An Behörden im gesetzlichen Rahmen</li>
+                            <li>An Kunden im Rahmen der Sicherheitsdienstleistung (z. B. Vorfälle im Objektschutz)</li>
+                            <li>An IT- und Hosting-Dienstleister</li>
+                        </ul>
+                        <p class="mt-2">Es erfolgt keine Datenweitergabe außerhalb der Europäischen Union (EU), sofern nicht anders angegeben.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">3. Rechte der betroffenen Personen</h4>
+                        <p>Sie haben als betroffene Person jederzeit das Recht auf:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li><strong>Auskunft</strong> über Ihre gespeicherten Daten (Art. 15 DSGVO)</li>
+                            <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+                            <li><strong>Löschung</strong> Ihrer Daten (Art. 17 DSGVO)</li>
+                            <li><strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+                            <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                            <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        }
+    };
+
+    function openLegal(type) {
+        const data = legalDetails[type];
+        if (!data) return;
+
+        document.getElementById('legal-title').textContent = data.title;
+        document.getElementById('legal-subtitle').textContent = data.subtitle;
+        document.getElementById('legal-icon').textContent = data.icon;
+        document.getElementById('legal-content').innerHTML = data.content;
+
+        const modal = document.getElementById('legal-modal');
+        const modalBox = document.getElementById('legal-box');
+        
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        modalBox.classList.remove('scale-95');
+        modalBox.classList.add('scale-100');
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLegal() {
+        const modal = document.getElementById('legal-modal');
+        const modalBox = document.getElementById('legal-box');
+        
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modalBox.classList.remove('scale-100');
+        modalBox.classList.add('scale-95');
+        
+        document.body.style.overflow = '';
+    }
+
     // Event listener for Escape key
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeDetails();
+            closeLegal();
         }
     });
 </script>
@@ -972,6 +1073,37 @@
         <div class="p-6 border-t border-gray-100 dark:border-outline-variant/10 flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-50/50 dark:bg-surface-container/20">
             <p class="font-body-sm text-xs text-gray-500 dark:text-on-surface-variant/70 text-center sm:text-left">Haben Sie Fragen? Wir beraten Sie gerne unverbindlich.</p>
             <button class="w-full sm:w-auto bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors shadow-md dark:shadow-none whitespace-nowrap" onclick="closeDetails(); document.getElementById('ueber-uns').scrollIntoView();">Jetzt Kontaktieren</button>
+        </div>
+    </div>
+</div>
+
+<!-- Legal Modal (Impressum / Datenschutz) -->
+<div id="legal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeLegal()">
+    <div id="legal-box" class="relative w-full max-w-3xl max-h-[85vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
+        <!-- Close Button -->
+        <button class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-on-surface-variant transition-colors" onclick="closeLegal()" aria-label="Schließen">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+
+        <!-- Modal Header -->
+        <div class="p-6 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
+            <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-3xl" id="legal-icon">gavel</span>
+            </div>
+            <div>
+                <h3 class="font-headline-lg text-lg sm:text-2xl text-gray-900 dark:text-on-surface font-bold leading-tight" id="legal-title">Impressum</h3>
+                <p class="font-label-caps text-xs text-primary uppercase tracking-widest mt-1" id="legal-subtitle">Rechtliche Hinweise</p>
+            </div>
+        </div>
+
+        <!-- Modal Content (Scrollable) -->
+        <div class="flex-grow overflow-y-auto p-6 md:p-8 space-y-6 text-gray-700 dark:text-on-surface-variant text-sm leading-relaxed" id="legal-content">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="p-6 border-t border-gray-100 dark:border-outline-variant/10 flex justify-end bg-gray-50/50 dark:bg-surface-container/20">
+            <button class="bg-gray-100 dark:bg-surface-variant hover:bg-gray-200 dark:hover:bg-white/10 text-gray-800 dark:text-on-surface font-label-caps text-xs uppercase px-6 py-2.5 rounded transition-colors" onclick="closeLegal()">Schließen</button>
         </div>
     </div>
 </div>
