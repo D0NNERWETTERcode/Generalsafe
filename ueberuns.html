@@ -405,7 +405,7 @@
             <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('impressum')">Impressum</a>
             <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('datenschutz')">Datenschutz</a>
             <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="index.html#ueber-uns">Kontakt</a>
-            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="alert('AGB folgen in Kürze.')">AGB</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('agb')">AGB</a>
         </div>
         <div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-gray-200 dark:border-outline-variant/10 text-center md:text-left transition-colors">
             <p class="font-body-sm text-body-sm text-gray-500 dark:text-on-surface-variant/60 transition-colors">
@@ -665,6 +665,43 @@
                             <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
                             <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
                         </ul>
+                    </div>
+                </div>
+            `
+        },
+        agb: {
+            title: "Allgemeine Geschäftsbedingungen (AGB)",
+            subtitle: "Vertragsbedingungen der General Safe GmbH & Co. KG",
+            icon: "description",
+            content: `
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">1. Geltungsbereich</h4>
+                        <p>Diese Allgemeinen Geschäftsbedingungen (AGB) gelten für alle Dienstleistungen (insbesondere Objektschutz, Revierfahrten, Detektei, Doorman, Empfangsdienste und Veranstaltungsschutz), die durch die General Safe GmbH & Co. KG (nachfolgend „General Safe“) für ihre Vertragspartner (nachfolgend „Kunde“) erbracht werden.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">2. Vertragsgegenstand & Leistungsausführung</h4>
+                        <p>Vertragsgegenstand ist die Durchführung von Sicherheits- und Ermittlungsdienstleistungen gemäß den Vereinbarungen im jeweiligen Einzelvertrag oder Angebot. General Safe erbringt ihre Leistungen als Dienstleistungen durch qualifiziertes und nach § 34a GewO geschultes Personal. Die Auswahl des Personals und das Weisungsrecht liegen ausschließlich bei General Safe.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">3. Angebote & Vertragsabschluss</h4>
+                        <p>Alle Angebote von General Safe sind freibleibend. Ein Vertrag kommt erst durch die schriftliche Auftragsbestätigung von General Safe oder durch die beiderseitige Unterzeichnung eines Dienstleistungsvertrages zustande.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">4. Zahlungsbedingungen & Vergütung</h4>
+                        <p>Die Vergütung richtet sich nach den im Vertrag vereinbarten Stundensätzen oder Pauschalen. Alle Preise verstehen sich zuzüglich der gesetzlichen Umsatzsteuer. Rechnungen sind innerhalb von 14 Tagen nach Rechnungsdatum ohne Abzug zur Zahlung fällig. Bei Zahlungsverzug gelten die gesetzlichen Regelungen.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">5. Haftung & Haftungsbegrenzung</h4>
+                        <p>General Safe haftet für Sach- und Vermögensschäden nur bei Vorsatz oder grober Fahrlässigkeit ihrer gesetzlichen Vertreter oder Erfüllungsgehilfen. Bei Verletzung vertragswesentlicher Pflichten (Kardinalpflichten) haftet General Safe auch bei einfacher Fahrlässigkeit, jedoch begrenzt auf den vertragstypischen, vorhersehbaren Schaden. Die Haftung für Schäden aus der Verletzung des Lebens, des Körpers oder der Gesundheit bleibt unberührt.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">6. Laufzeit & Kündigung</h4>
+                        <p>Soweit nicht anders vereinbart, wird der Vertrag auf unbestimmte Zeit geschlossen. Die Kündigungsfristen richten sich nach den vertraglichen Vereinbarungen im Einzelvertrag. Das Recht zur außerordentlichen Kündigung aus wichtigem Grund bleibt hiervon unberührt.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">7. Schlussbestimmungen & Gerichtsstand</h4>
+                        <p>Es gilt das Recht der Bundesrepublik Deutschland. Gerichtsstand für alle Streitigkeiten aus oder im Zusammenhang mit diesem Vertrag ist, soweit gesetzlich zulässig, Kiel. Sollte eine Bestimmung dieser AGB unwirksam sein oder werden, bleibt die Wirksamkeit der übrigen Bestimmungen unberührt.</p>
                     </div>
                 </div>
             `
