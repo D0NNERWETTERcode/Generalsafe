@@ -218,7 +218,7 @@
                 <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
                 <span class="material-symbols-outlined hidden dark:block">light_mode</span>
             </button>
-            <button onclick="window.location.href='index.html#ueber-uns'" class="hidden sm:inline-block bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-3 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md dark:shadow-[0_0_15px_rgba(30,153,221,0.2)]">Jetzt anfragen</button>
+            <button onclick="openInquiryModal()" class="hidden sm:inline-block bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-3 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md dark:shadow-[0_0_15px_rgba(30,153,221,0.2)]">Jetzt anfragen</button>
             <!-- Mobile Menu Toggle -->
             <button class="md:hidden p-2 text-gray-900 dark:text-on-surface" id="mobile-menu-btn">
                 <span class="material-symbols-outlined">menu</span>
@@ -233,7 +233,7 @@
     <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="ueberuns.html">Über uns</a>
     <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="karriere.html">Karriere</a>
     <div class="mt-8 flex flex-col gap-4">
-        <button onclick="window.location.href='index.html#ueber-uns'" class="w-full bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-4 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md">Jetzt anfragen</button>
+        <button onclick="openInquiryModal()" class="w-full bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-4 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md">Jetzt anfragen</button>
     </div>
 </div>
 
@@ -272,7 +272,7 @@
                     <p class="font-body-sm text-gray-600 dark:text-on-surface-variant/80 text-sm leading-relaxed">
                         Durch regelmäßige, unangekündigte Kontrollen zu wechselnden Zeiten schaffen Revierfahrer ein hohes Maß an Prävention und Reaktionsfähigkeit – ein entscheidender Vorteil gegenüber statischen Bewachungen.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Revierfahrer')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Revierdienst anfragen
                     </button>
                 </div>
@@ -313,7 +313,7 @@
                     <p class="font-body-sm text-gray-600 dark:text-on-surface-variant/80 text-sm leading-relaxed">
                         Ob Wirtschaftskriminalität, Mitarbeiterdelikte oder private Angelegenheiten – wir arbeiten unauffällig, zielgerichtet und rechtssicher, immer im Rahmen der gesetzlichen Bestimmungen und Datenschutzvorgaben.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Detektei')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Ermittlung anfragen
                     </button>
                 </div>
@@ -353,7 +353,7 @@
                     <p class="font-body-sm text-gray-600 dark:text-on-surface-variant/80 text-sm leading-relaxed">
                         Dabei achten wir auf eine diskrete, deeskalierende Vorgehensweise: Sicherheit soll spürbar sein – aber nicht störend wirken.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Doorman')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Doorman buchen
                     </button>
                 </div>
@@ -390,7 +390,7 @@
                     <p class="font-body-md text-gray-700 dark:text-on-surface-variant leading-relaxed">
                         Der Empfangsbereich ist die Visitenkarte jedes Unternehmens. Hier entsteht der erste Eindruck, hier treffen Kunden, Gäste und Mitarbeitende aufeinander. Unsere geschulten Empfangs- und Pförtnerkräfte verbinden Servicebewusstsein mit Sicherheitsdenken und sorgen für einen reibungslosen Ablauf am Eingang Ihres Unternehmens.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Empfang')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Empfangsdienst anfragen
                     </button>
                 </div>
@@ -428,7 +428,7 @@
                     <p class="font-body-md text-gray-700 dark:text-on-surface-variant leading-relaxed">
                         Der Objektschutz ist das Fundament einer soliden Sicherheitsstruktur. Ob Industrieanlage, Bürokomplex, Baustelle oder private Liegenschaft – wir sichern Ihr Eigentum durch permanente physische Präsenz, Kontrollrundgänge und modernste Überwachungstechnik gegen unbefugtes Betreten, Diebstahl und Vandalismus.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Objektschutz')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Objektschutz anfragen
                     </button>
                 </div>
@@ -465,7 +465,7 @@
                     <p class="font-body-md text-gray-700 dark:text-on-surface-variant leading-relaxed">
                         Inventurdifferenzen belasten den Einzelhandel jährlich in Milliardenhöhe. Unsere professionellen Ladendetektive arbeiten diskret im Hintergrund auf der Verkaufsfläche oder werten Videoübertragungen in Echtzeit aus, um Diebstähle effektiv zu verhindern, Täter auf frischer Tat zu stellen und Ihr Personal zu entlasten.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Ladendetektiv')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Detektiv anfragen
                     </button>
                 </div>
@@ -502,7 +502,7 @@
                     <p class="font-body-md text-gray-700 dark:text-on-surface-variant leading-relaxed">
                         Jede Veranstaltung stellt eigene Anforderungen an das Sicherheitskonzept. Vom exklusiven VIP-Event über Firmenpräsentationen bis hin zu Großveranstaltungen: Wir sorgen für einen reibungsloser Ablauf, kontrollieren Zugänge, schützen Personen und deeskalieren Konflikte diskret im Hintergrund.
                     </p>
-                    <button onclick="window.location.href='index.html#ueber-uns'" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
+                    <button onclick="openInquiryModal('Event')" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors inline-block mt-4 shadow-md">
                         Eventschutz anfragen
                     </button>
                 </div>
@@ -588,6 +588,93 @@
         <!-- Modal Footer -->
         <div class="p-6 border-t border-gray-100 dark:border-outline-variant/10 flex justify-end bg-gray-50/50 dark:bg-surface-container/20">
             <button class="bg-gray-100 dark:bg-surface-variant hover:bg-gray-200 dark:hover:bg-white/10 text-gray-800 dark:text-on-surface font-label-caps text-xs uppercase px-6 py-2.5 rounded transition-colors" onclick="closeLegal()">Schließen</button>
+        </div>
+    </div>
+</div>
+
+<!-- Inquiry Modal -->
+<div id="inquiry-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeInquiryModal()">
+    <div id="inquiry-box" class="relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
+        <!-- Close Button -->
+        <button class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-on-surface-variant transition-colors" onclick="closeInquiryModal()" aria-label="Schließen">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+
+        <!-- Modal Header -->
+        <div class="p-6 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
+            <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-3xl">contact_support</span>
+            </div>
+            <div>
+                <h3 class="font-headline-lg text-lg sm:text-2xl text-gray-900 dark:text-on-surface font-bold leading-tight">Jetzt anfragen</h3>
+                <p class="font-label-caps text-xs text-primary uppercase tracking-widest mt-1">Unverbindliches Angebot anfordern</p>
+            </div>
+        </div>
+
+        <!-- Modal Content (Scrollable) -->
+        <div class="flex-grow overflow-y-auto p-6 md:p-8" id="inquiry-modal-content">
+            <form id="inquiry-form" class="space-y-6" onsubmit="handleInquirySubmit(event)">
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label for="inquiry-name" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Name / Unternehmen *</label>
+                        <input type="text" id="inquiry-name" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="inquiry-email" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">E-Mail-Adresse *</label>
+                        <input type="email" id="inquiry-email" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+                    <div class="space-y-2">
+                        <label for="inquiry-phone" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Telefonnummer *</label>
+                        <input type="tel" id="inquiry-phone" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                    </div>
+                    <div class="space-y-2">
+                        <label for="inquiry-service" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Gewünschte Leistung *</label>
+                        <select id="inquiry-service" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                            <option value="" disabled selected>Bitte wählen...</option>
+                            <option value="Revierfahrer">Revierfahrer</option>
+                            <option value="Detektei & Ermittlingsdienst">Detektei & Ermittlungsdienst</option>
+                            <option value="Doorman">Doorman</option>
+                            <option value="Empfangs- und Pförtnerdienst">Empfangs- und Pförtnerdienst</option>
+                            <option value="Objektschutz">Objektschutz</option>
+                            <option value="Ladendetektiv/in">Ladendetektiv/in</option>
+                            <option value="Event- und Veranstaltungsschutz">Event- und Veranstaltungsschutz</option>
+                            <option value="Andere Anfrage / Beratung">Andere Anfrage / Beratung</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="space-y-2">
+                    <label for="inquiry-message" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Details zu Ihrer Anfrage *</label>
+                    <textarea id="inquiry-message" rows="4" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary resize-none" placeholder="Beschreiben Sie kurz Ihr Vorhaben, den Zeitraum oder besondere Anforderungen..."></textarea>
+                </div>
+
+                <div class="flex items-start gap-2 pt-2">
+                    <input type="checkbox" id="inquiry-privacy" required class="mt-1 rounded text-primary border-gray-300 dark:border-outline-variant/20 focus:ring-primary focus:ring-opacity-50">
+                    <label for="inquiry-privacy" class="text-xs text-gray-500 dark:text-on-surface-variant/80">Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Beantwortung meiner Anfrage gespeichert und verarbeitet werden. *</label>
+                </div>
+
+                <div class="pt-4 flex justify-end gap-4 border-t border-gray-100 dark:border-outline-variant/10">
+                    <button type="button" class="bg-gray-100 dark:bg-surface-variant hover:bg-gray-200 dark:hover:bg-white/10 text-gray-800 dark:text-on-surface font-label-caps text-xs uppercase px-6 py-3 rounded transition-colors" onclick="closeInquiryModal()">Abbrechen</button>
+                    <button type="submit" class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container hover:bg-blue-600 dark:hover:bg-primary font-label-caps text-xs uppercase px-6 py-3 rounded transition-colors shadow-md">Anfrage absenden</button>
+                </div>
+            </form>
+            
+            <!-- Success Message Container -->
+            <div id="inquiry-success-message" class="hidden py-8 text-center space-y-6">
+                <div class="w-16 h-16 bg-status-success/15 text-status-success rounded-full flex items-center justify-center mx-auto animate-bounce">
+                    <span class="material-symbols-outlined text-4xl">check_circle</span>
+                </div>
+                <div class="space-y-2">
+                    <h4 class="text-xl font-bold text-gray-900 dark:text-white">Anfrage erfolgreich gesendet!</h4>
+                    <p class="text-sm text-gray-600 dark:text-on-surface-variant max-w-md mx-auto">Vielen Dank für Ihr Interesse an unseren Sicherheitsdienstleistungen. Wir bearbeiten Ihre Anfrage umgehend und setzen uns innerhalb von 24 Stunden mit Ihnen in Verbindung.</p>
+                </div>
+                <div class="pt-6">
+                    <button class="bg-primary dark:bg-primary-container text-white dark:text-on-primary-container hover:bg-blue-600 dark:hover:bg-primary font-label-caps text-xs uppercase px-8 py-3 rounded transition-colors" onclick="closeInquiryModal()">Schließen</button>
+                </div>
+            </div>
         </div>
     </div>
 </div>
@@ -766,8 +853,65 @@
     document.addEventListener('keydown', (e) => {
         if (e.key === 'Escape') {
             closeLegal();
+            closeInquiryModal();
         }
     });
+
+    // Inquiry Modal functions
+    function openInquiryModal(serviceName = '') {
+        const select = document.getElementById('inquiry-service');
+        if (select) {
+            if (serviceName) {
+                let found = false;
+                for (let i = 0; i < select.options.length; i++) {
+                    if (select.options[i].value.toLowerCase().includes(serviceName.toLowerCase())) {
+                        select.selectedIndex = i;
+                        found = true;
+                        break;
+                    }
+                }
+                if (!found) {
+                    select.selectedIndex = 0;
+                }
+            } else {
+                select.selectedIndex = 0;
+            }
+        }
+
+        // Reset form & UI
+        const form = document.getElementById('inquiry-form');
+        if (form) form.reset();
+        document.getElementById('inquiry-form').classList.remove('hidden');
+        document.getElementById('inquiry-success-message').classList.add('hidden');
+
+        const modal = document.getElementById('inquiry-modal');
+        const modalBox = document.getElementById('inquiry-box');
+        
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        modalBox.classList.remove('scale-95');
+        modalBox.classList.add('scale-100');
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeInquiryModal() {
+        const modal = document.getElementById('inquiry-modal');
+        const modalBox = document.getElementById('inquiry-box');
+        
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modalBox.classList.remove('scale-100');
+        modalBox.classList.add('scale-95');
+        
+        document.body.style.overflow = '';
+    }
+
+    function handleInquirySubmit(e) {
+        e.preventDefault();
+        document.getElementById('inquiry-form').classList.add('hidden');
+        document.getElementById('inquiry-success-message').classList.remove('hidden');
+    }
 </script>
 </body>
 </html>
