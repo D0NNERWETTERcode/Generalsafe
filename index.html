@@ -1094,15 +1094,15 @@
 </script>
 
 <!-- Security Service Details Modal (Premium Glassmorphic Design) -->
-<div id="details-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeDetails()">
-    <div id="modal-box" class="relative w-full max-w-4xl max-h-[85vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
+<div id="details-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeDetails()">
+    <div id="modal-box" class="relative w-full max-w-4xl max-h-[92vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
         <!-- Close Button -->
         <button class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-on-surface-variant transition-colors" onclick="closeDetails()" aria-label="Schließen">
             <span class="material-symbols-outlined text-2xl">close</span>
         </button>
 
         <!-- Modal Header -->
-        <div class="p-6 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
+        <div class="p-5 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
             <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
                 <span class="material-symbols-outlined text-3xl" id="modal-icon">directions_car</span>
             </div>
@@ -1113,7 +1113,7 @@
         </div>
 
         <!-- Modal Content (Scrollable) -->
-        <div class="flex-grow overflow-y-auto p-6 md:p-8 space-y-8">
+        <div class="flex-grow overflow-y-auto p-4 md:p-8 space-y-6 md:space-y-8">
             <!-- Introductions -->
             <div class="space-y-4">
                 <p class="font-body-md text-gray-800 dark:text-on-surface text-base leading-relaxed" id="modal-desc"></p>
@@ -1127,7 +1127,7 @@
         </div>
 
         <!-- Modal Footer Actions -->
-        <div class="p-6 border-t border-gray-100 dark:border-outline-variant/10 flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-50/50 dark:bg-surface-container/20">
+        <div class="p-5 border-t border-gray-100 dark:border-outline-variant/10 flex flex-col sm:flex-row gap-4 justify-between items-center bg-gray-50/50 dark:bg-surface-container/20">
             <p class="font-body-sm text-xs text-gray-500 dark:text-on-surface-variant/70 text-center sm:text-left">Haben Sie Fragen? Wir beraten Sie gerne unverbindlich.</p>
             <button class="w-full sm:w-auto bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase px-6 py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors shadow-md dark:shadow-none whitespace-nowrap" onclick="closeDetails(); openInquiryModal(document.getElementById('modal-title').textContent);">Jetzt Kontaktieren</button>
         </div>
@@ -1135,15 +1135,15 @@
 </div>
 
 <!-- Legal Modal (Impressum / Datenschutz) -->
-<div id="legal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeLegal()">
-    <div id="legal-box" class="relative w-full max-w-3xl max-h-[85vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
+<div id="legal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeLegal()">
+    <div id="legal-box" class="relative w-full max-w-3xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
         <!-- Close Button -->
         <button class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-on-surface-variant transition-colors" onclick="closeLegal()" aria-label="Schließen">
             <span class="material-symbols-outlined text-2xl">close</span>
         </button>
 
         <!-- Modal Header -->
-        <div class="p-6 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
+        <div class="p-5 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
             <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
                 <span class="material-symbols-outlined text-3xl" id="legal-icon">gavel</span>
             </div>
@@ -1154,27 +1154,27 @@
         </div>
 
         <!-- Modal Content (Scrollable) -->
-        <div class="flex-grow overflow-y-auto p-6 md:p-8 space-y-6 text-gray-700 dark:text-on-surface-variant text-sm leading-relaxed" id="legal-content">
+        <div class="flex-grow overflow-y-auto p-4 md:p-8 space-y-6 text-gray-700 dark:text-on-surface-variant text-sm leading-relaxed" id="legal-content">
             <!-- Dynamically populated -->
         </div>
 
         <!-- Modal Footer -->
-        <div class="p-6 border-t border-gray-100 dark:border-outline-variant/10 flex justify-end bg-gray-50/50 dark:bg-surface-container/20">
+        <div class="p-5 border-t border-gray-100 dark:border-outline-variant/10 flex justify-end bg-gray-50/50 dark:bg-surface-container/20">
             <button class="bg-gray-100 dark:bg-surface-variant hover:bg-gray-200 dark:hover:bg-white/10 text-gray-800 dark:text-on-surface font-label-caps text-xs uppercase px-6 py-2.5 rounded transition-colors" onclick="closeLegal()">Schließen</button>
         </div>
     </div>
 </div>
 
 <!-- Inquiry Modal -->
-<div id="inquiry-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeInquiryModal()">
-    <div id="inquiry-box" class="relative w-full max-w-2xl max-h-[90vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
+<div id="inquiry-modal" class="fixed inset-0 z-50 flex items-center justify-center p-2 sm:p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeInquiryModal()">
+    <div id="inquiry-box" class="relative w-full max-w-2xl max-h-[92vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
         <!-- Close Button -->
         <button class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-on-surface-variant transition-colors" onclick="closeInquiryModal()" aria-label="Schließen">
             <span class="material-symbols-outlined text-2xl">close</span>
         </button>
 
         <!-- Modal Header -->
-        <div class="p-6 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
+        <div class="p-5 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
             <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
                 <span class="material-symbols-outlined text-3xl">contact_support</span>
             </div>
@@ -1185,8 +1185,8 @@
         </div>
 
         <!-- Modal Content (Scrollable) -->
-        <div class="flex-grow overflow-y-auto p-6 md:p-8" id="inquiry-modal-content">
-            <form id="inquiry-form" class="space-y-6" onsubmit="handleInquirySubmit(event)">
+        <div class="flex-grow overflow-y-auto p-4 md:p-8" id="inquiry-modal-content">
+            <form id="inquiry-form" class="space-y-4 md:space-y-6" onsubmit="handleInquirySubmit(event)">
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label for="inquiry-name" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Name / Unternehmen *</label>
