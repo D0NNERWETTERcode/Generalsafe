@@ -1,0 +1,627 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Über Uns - General Safe GmbH & Co. KG</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Hanken+Grotesk:wght@600;700&amp;family=Inter:wght@400;500&amp;family=JetBrains+Mono:wght@500&amp;display=swap" rel="stylesheet"/>
+    
+    <script>
+        // Apply theme class immediately to avoid FOUC
+        if (localStorage.getItem('theme') === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+            document.documentElement.classList.add('dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+        }
+    </script>
+
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "primary": "var(--primary)",
+                        "primary-container": "var(--primary-container)",
+                        "on-primary-container": "var(--on-primary-container)",
+                        "status-success": "#10B981",
+                        "on-tertiary-fixed": "#181c22",
+                        "secondary-container": "#43474d",
+                        "on-error": "#690005",
+                        "error": "#ffb4ab",
+                        "surface-container": "#1d2021",
+                        "secondary-fixed": "#e0e2e9",
+                        "background": "#111415",
+                        "on-secondary-container": "#b2b5bc",
+                        "surface-bright": "#373a3b",
+                        "tertiary": "#c3c6cf",
+                        "midnight-blue": "#101827",
+                        "surface-dim": "#111415",
+                        "surface-container-low": "#191c1d",
+                        "surface-variant": "#323536",
+                        "charcoal-deep": "#121212",
+                        "on-secondary-fixed": "#181c21",
+                        "surface-tint": "#8fcdff",
+                        "secondary-fixed-dim": "#c3c6cd",
+                        "surface": "#111415",
+                        "tertiary-fixed": "#dfe2eb",
+                        "primary-fixed-dim": "#8fcdff",
+                        "surface-container-lowest": "#0c0f10",
+                        "on-primary-fixed-variant": "#004b71",
+                        "on-error-container": "#ffdad6",
+                        "on-surface-variant": "#bec7d2",
+                        "inverse-on-surface": "#2e3132",
+                        "inverse-primary": "#006495",
+                        "on-secondary": "#2d3136",
+                        "tertiary-fixed-dim": "#c3c6cf",
+                        "inverse-surface": "#e1e3e4",
+                        "on-secondary-fixed-variant": "#43474d",
+                        "on-tertiary-container": "#262a30",
+                        "error-container": "#93000a",
+                        "secondary": "#c3c6cd",
+                        "on-primary": "#003450",
+                        "surface-container-high": "#282a2b",
+                        "on-tertiary-fixed-variant": "#43474e",
+                        "primary-fixed": "#cbe6ff",
+                        "on-primary-fixed": "#001e30",
+                        "on-tertiary": "#2d3137",
+                        "steel-gray": "#94A3B8",
+                        "on-surface": "#e1e3e4",
+                        "on-background": "#e1e3e4",
+                        "surface-container-highest": "#323536",
+                        "tertiary-container": "#8d9199",
+                        "outline-variant": "#3f4850",
+                        "outline": "#89929b"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.125rem",
+                        "lg": "0.25rem",
+                        "xl": "0.5rem",
+                        "full": "0.75rem"
+                    },
+                    "spacing": {
+                        "margin-desktop": "64px",
+                        "gutter": "24px",
+                        "base": "8px",
+                        "margin-mobile": "16px",
+                        "container-max": "1280px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["JetBrains Mono"],
+                        "body-sm": ["Inter"],
+                        "headline-lg": ["Hanken Grotesk"],
+                        "body-md": ["Inter"],
+                        "headline-xl": ["Hanken Grotesk"],
+                        "headline-lg-mobile": ["Hanken Grotesk"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", { "lineHeight": "16px", "letterSpacing": "0.1em", "fontWeight": "500" }],
+                        "body-sm": ["14px", { "lineHeight": "20px", "fontWeight": "400" }],
+                        "headline-lg": ["32px", { "lineHeight": "40px", "fontWeight": "600" }],
+                        "body-md": ["16px", { "lineHeight": "24px", "fontWeight": "400" }],
+                        "headline-xl": ["48px", { "lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700" }],
+                        "headline-lg-mobile": ["24px", { "lineHeight": "32px", "fontWeight": "600" }]
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        :root {
+            --primary: #0090d4;
+            --primary-container: #e0f2fe;
+            --on-primary-container: #0369a1;
+            --grid-color: #9ca3af;
+        }
+        .dark {
+            --primary: #8fcdff;
+            --primary-container: #1e99dd;
+            --on-primary-container: #002d46;
+            --grid-color: #3f4850;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body { 
+            background-color: #ffffff; 
+            color: #111827; 
+            transition: background-color 0.5s cubic-bezier(0.4, 0, 0.2, 1), color 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .dark body { 
+            background-color: #121212; 
+            color: #e1e3e4; 
+        }
+        
+        header, section, footer, div, a, button, h1, h2, h3, h4, p, span, img {
+            transition: background-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        border-color 0.4s cubic-bezier(0.4, 0, 0.2, 1), 
+                        color 0.4s cubic-bezier(0.4, 0, 0.2, 1),
+                        box-shadow 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .glass-card {
+            background: rgba(255, 255, 255, 0.9);
+            backdrop-filter: blur(12px);
+            border: 1px solid rgba(229, 231, 235, 1);
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+        .dark .glass-card {
+            background: rgba(16, 24, 39, 0.7);
+            border: 1px solid rgba(148, 163, 184, 0.2);
+            box-shadow: none;
+        }
+
+        .nav-link {
+            position: relative;
+        }
+        .nav-link::after {
+            content: '';
+            position: absolute;
+            width: 100%;
+            transform: scaleX(0);
+            height: 2px;
+            bottom: -4px;
+            left: 0;
+            background-color: var(--primary);
+            transform-origin: bottom right;
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        .nav-link:hover::after {
+            transform: scaleX(1);
+            transform-origin: bottom left;
+        }
+
+        #theme-toggle span {
+            transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        #theme-toggle:hover span {
+            transform: rotate(45deg);
+        }
+
+        .reveal-fade-up {
+            opacity: 0;
+            transform: translateY(30px);
+            transition: opacity 0.8s cubic-bezier(0.2, 0.8, 0.2, 1), transform 0.8s cubic-bezier(0.2, 0.8, 0.2, 1) !important;
+        }
+        .reveal-fade-up.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+    </style>
+</head>
+<body class="bg-white dark:bg-charcoal-deep text-gray-900 dark:text-on-surface font-body-md antialiased selection:bg-primary-container selection:text-on-primary-container flex flex-col min-h-screen">
+
+<!-- TopNavBar -->
+<header class="sticky top-0 z-50 w-full bg-white dark:bg-charcoal-deep border-b border-gray-200 dark:border-outline-variant/20 transition-all duration-300 shadow-sm" id="main-nav">
+    <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto relative z-50">
+        <!-- Brand -->
+        <a class="flex items-center gap-3 group hover:opacity-90 transition-all duration-300" href="index.html">
+            <img alt="General Safe Logo" class="h-10 w-auto group-hover:scale-105 transition-transform duration-300" src="logo.png"/>
+            <span class="font-headline-lg-mobile md:font-headline-lg text-lg sm:text-headline-lg-mobile md:text-headline-lg uppercase tracking-[0.18em] transition-colors duration-300">
+                <span class="font-light text-gray-800 dark:text-gray-200">General</span><span class="font-bold text-primary">Safe</span>
+            </span>
+        </a>
+        <!-- Navigation Links (Desktop) -->
+        <nav class="hidden md:flex items-center gap-8">
+            <a class="nav-link font-body-md text-body-md font-label-caps text-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="services.html">Leistungen</a>
+            <a class="nav-link font-body-md text-body-md font-label-caps text-label-caps text-primary hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="ueberuns.html">Über uns</a>
+            <a class="nav-link font-body-md text-body-md font-label-caps text-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="index.html#karriere">Karriere</a>
+        </nav>
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+            <!-- Dark/Light Mode Switch Button -->
+            <button id="theme-toggle" class="p-2 text-primary hover:bg-gray-100 dark:hover:bg-white/5 rounded-full transition-all duration-300 active:scale-95 ease-in-out" aria-label="Theme umschalten">
+                <span class="material-symbols-outlined block dark:hidden">dark_mode</span>
+                <span class="material-symbols-outlined hidden dark:block">light_mode</span>
+            </button>
+            <button onclick="document.getElementById('kontakt-sektion').scrollIntoView({ behavior: 'smooth' })" class="hidden sm:inline-block bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-3 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md dark:shadow-[0_0_15px_rgba(30,153,221,0.2)]">Jetzt anfragen</button>
+            <!-- Mobile Menu Toggle -->
+            <button class="md:hidden p-2 text-gray-900 dark:text-on-surface" id="mobile-menu-btn">
+                <span class="material-symbols-outlined">menu</span>
+            </button>
+        </div>
+    </div>
+</header>
+
+<!-- Mobile Navigation Drawer -->
+<div id="mobile-menu" class="fixed inset-0 z-40 bg-white dark:bg-charcoal-deep transform translate-x-full transition-transform duration-300 ease-in-out md:hidden flex flex-col pt-28 px-margin-mobile gap-6">
+    <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="services.html">Leistungen</a>
+    <a class="font-body-md text-xl font-label-caps text-primary hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="ueberuns.html">Über uns</a>
+    <a class="font-body-md text-xl font-label-caps text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors duration-200 uppercase tracking-widest" href="index.html#karriere">Karriere</a>
+    <div class="mt-8 flex flex-col gap-4">
+        <button onclick="document.getElementById('kontakt-sektion').scrollIntoView({ behavior: 'smooth' })" class="w-full bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-label-caps uppercase px-6 py-4 rounded hover:bg-blue-600 dark:hover:bg-primary transition-colors active:scale-95 duration-150 shadow-md">Jetzt anfragen</button>
+    </div>
+</div>
+
+<main class="flex-grow">
+    <!-- Hero Header Sektion -->
+    <section class="relative py-24 bg-gray-50 dark:bg-surface-dim border-b border-gray-200 dark:border-outline-variant/10 overflow-hidden">
+        <div class="absolute inset-0 opacity-10 dark:opacity-20" style="background-image: radial-gradient(var(--grid-color) 1px, transparent 1px); background-size: 24px 24px;"></div>
+        <div class="relative z-10 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+            <a href="index.html" class="inline-flex items-center gap-2 text-primary hover:underline font-label-caps text-xs uppercase mb-4">
+                <span class="material-symbols-outlined text-sm">arrow_back</span> Zurück zur Startseite
+            </a>
+            <h1 class="font-headline-xl text-3xl sm:text-4xl md:text-headline-xl text-gray-900 dark:text-on-surface mb-4">
+                Wer wir sind: <span class="text-primary">General Safe</span>
+            </h1>
+            <p class="font-body-md text-gray-600 dark:text-on-surface-variant max-w-2xl mx-auto text-base sm:text-lg">
+                Ihr verlässlicher Partner in einer komplexen Welt. Diskretion, Professionalität und Präzision sind die Säulen unserer täglichen Arbeit.
+            </p>
+        </div>
+    </section>
+
+    <!-- Company Values & Overview Sektion -->
+    <section class="py-20 bg-white dark:bg-charcoal-deep">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-12 items-center">
+            <!-- Left Info Block -->
+            <div class="reveal-fade-up md:col-span-7 space-y-6">
+                <h2 class="font-headline-lg text-2xl sm:text-3xl text-gray-900 dark:text-on-surface font-bold leading-tight">
+                    Unsere Philosophie: Schutz und Prävention durch weitsichtiges Handeln.
+                </h2>
+                <p class="font-body-md text-gray-700 dark:text-on-surface-variant leading-relaxed text-base">
+                    Seit unserer Gründung stehen wir für ein Sicherheitskonzept, das auf Diskretion, höchster Professionalität und präziser Ausführung basiert. Unser Anspruch ist es, nicht nur auf Vorfälle zu reagieren, sondern durch vorausschauende Risikoanalysen Gefahren zu minimieren, bevor sie entstehen.
+                </p>
+                <p class="font-body-md text-gray-700 dark:text-on-surface-variant leading-relaxed text-base">
+                    Wir verstehen uns als moderner Dienstleister. Deshalb kombinieren wir exzellent geschulte Sicherheitskräfte mit zukunftsweisenden, digitalen Dokumentations- und Kontrollsystemen. Das schafft für Sie maximale Transparenz und lückenlose Sicherheit zu jedem Zeitpunkt.
+                </p>
+                <!-- Key Facts Grid -->
+                <div class="grid grid-cols-2 gap-6 pt-4">
+                    <div class="border-l-4 border-primary pl-4">
+                        <h4 class="font-headline-lg-mobile text-lg text-gray-900 dark:text-white font-bold">100%</h4>
+                        <p class="font-body-sm text-xs text-gray-500 dark:text-on-surface-variant uppercase">Diskretion & Vertraulichkeit</p>
+                    </div>
+                    <div class="border-l-4 border-primary pl-4">
+                        <h4 class="font-headline-lg-mobile text-lg text-gray-900 dark:text-white font-bold">24/7</h4>
+                        <p class="font-body-sm text-xs text-gray-500 dark:text-on-surface-variant uppercase">Ständige Einsatzbereitschaft</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Right Brand Card -->
+            <div class="reveal-fade-up md:col-span-5 bg-gray-50 dark:bg-midnight-blue p-8 rounded-xl border border-gray-200 dark:border-outline-variant/10 shadow-sm">
+                <div class="flex flex-col gap-6">
+                    <img alt="General Safe Logo" class="h-20 w-auto self-start" src="logo.png"/>
+                    <h3 class="font-headline-lg text-lg text-gray-950 dark:text-white font-bold">General Safe GmbH & Co. KG</h3>
+                    <p class="font-body-sm text-sm text-gray-600 dark:text-on-surface-variant leading-relaxed">
+                        Wir sind ansässig im Großraum Kiel und betreuen anspruchsvolle Gewerbe- und Privatkunden mit maßgeschneiderten Sicherheitslösungen.
+                    </p>
+                    <div class="text-xs space-y-2 text-gray-500 dark:text-on-surface-variant/70 border-t border-gray-200 dark:border-outline-variant/10 pt-4 font-body-sm">
+                        <p><strong>Geschäftsführer:</strong> Ammar Jafar</p>
+                        <p><strong>Firmensitz:</strong> Schönkirchen</p>
+                        <p><strong>Aufsichtsbehörde:</strong> Amtsgericht Kiel (HRA 12907 K)</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Qualität & Standards Bento Sektion -->
+    <section class="py-20 bg-gray-50 dark:bg-surface-dim border-t border-b border-gray-200 dark:border-outline-variant/10 relative">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <h2 class="font-label-caps text-label-caps text-primary uppercase tracking-widest mb-2">Unsere Standards</h2>
+                <h3 class="font-headline-lg text-2xl sm:text-3xl text-gray-900 dark:text-on-surface transition-colors font-bold">Geprüfte Qualität für maximale Sicherheit</h3>
+            </div>
+            <!-- Bento Layout for Standards -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+                <div class="reveal-fade-up glass-card rounded-xl p-8 flex flex-col gap-4">
+                    <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-3xl">verified</span>
+                    </div>
+                    <h4 class="font-headline-lg text-base sm:text-lg text-gray-900 dark:text-white font-bold">§ 34a GewO Qualifikation</h4>
+                    <p class="font-body-sm text-sm text-gray-600 dark:text-on-surface-variant leading-relaxed">
+                        Unser gesamtes operatives Personal verfügt mindestens über die gesetzlich vorgeschriebene Unterrichtung oder Sachkundeprüfung nach § 34a GewO.
+                    </p>
+                </div>
+                <div class="reveal-fade-up glass-card rounded-xl p-8 flex flex-col gap-4">
+                    <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-3xl">emergency_home</span>
+                    </div>
+                    <h4 class="font-headline-lg text-base sm:text-lg text-gray-900 dark:text-white font-bold">Ersthelfer & Brandschutz</h4>
+                    <p class="font-body-sm text-sm text-gray-600 dark:text-on-surface-variant leading-relaxed">
+                        Im Ernstfall zählt jede Sekunde. Daher schulen wir unsere Mitarbeiter kontinuierlich in Erster Hilfe und Brandschutzprävention.
+                    </p>
+                </div>
+                <div class="reveal-fade-up glass-card rounded-xl p-8 flex flex-col gap-4">
+                    <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary">
+                        <span class="material-symbols-outlined text-3xl">devices_fold</span>
+                    </div>
+                    <h4 class="font-headline-lg text-base sm:text-lg text-gray-900 dark:text-white font-bold">Echtzeit-Dokumentation</h4>
+                    <p class="font-body-sm text-sm text-gray-600 dark:text-on-surface-variant leading-relaxed">
+                        Mit modernsten Wächterkontrollsystemen (GPS-gestützt) weisen wir alle Kontrollgänge und Berichte digital und transparent nach.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Kontakt / Anfrage Sektion -->
+    <section class="py-20 bg-white dark:bg-charcoal-deep" id="kontakt-sektion">
+        <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid md:grid-cols-12 gap-12 items-center">
+            <div class="reveal-fade-up md:col-span-5 space-y-4">
+                <h2 class="font-headline-lg text-2xl sm:text-3xl text-gray-900 dark:text-on-surface font-bold leading-tight">Gemeinsam für Ihre Sicherheit</h2>
+                <p class="font-body-md text-gray-600 dark:text-on-surface-variant leading-relaxed text-sm">
+                    Haben Sie Fragen zu unseren Leistungen oder benötigen Sie ein konkretes, unverbindliches Angebot für Ihr Objekt? Kontaktieren Sie uns direkt – wir melden uns umgehend bei Ihnen.
+                </p>
+                <div class="space-y-4 pt-4 font-body-sm text-sm text-gray-700 dark:text-on-surface-variant">
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl">mail</span>
+                        <a href="mailto:info@general-safe.com" class="hover:underline">info@general-safe.com</a>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <span class="material-symbols-outlined text-primary text-xl">location_on</span>
+                        <span>Bürgermeister-Schade-Str. 18, 24232 Schönkirchen</span>
+                    </div>
+                </div>
+            </div>
+            <!-- Simple Premium Contact Form -->
+            <div class="reveal-fade-up md:col-span-7 bg-gray-50 dark:bg-midnight-blue p-8 rounded-xl border border-gray-200 dark:border-outline-variant/10 shadow-sm">
+                <form class="space-y-4" onsubmit="event.preventDefault(); alert('Vielen Dank! Ihre Anfrage wurde simuliert gesendet. Wir melden uns in Kürze bei Ihnen.');">
+                    <div class="grid sm:grid-cols-2 gap-4">
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-caps text-xs uppercase text-gray-500 dark:text-on-surface-variant/70">Name</label>
+                            <input required type="text" class="rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-charcoal-deep p-3 text-sm focus:border-primary focus:outline-none text-gray-900 dark:text-white"/>
+                        </div>
+                        <div class="flex flex-col gap-1.5">
+                            <label class="font-label-caps text-xs uppercase text-gray-500 dark:text-on-surface-variant/70">E-Mail</label>
+                            <input required type="email" class="rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-charcoal-deep p-3 text-sm focus:border-primary focus:outline-none text-gray-900 dark:text-white"/>
+                        </div>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-caps text-xs uppercase text-gray-500 dark:text-on-surface-variant/70">Betreff / Gewünschte Leistung</label>
+                        <input type="text" placeholder="z. B. Objektschutz, Revierfahrer..." class="rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-charcoal-deep p-3 text-sm focus:border-primary focus:outline-none text-gray-900 dark:text-white"/>
+                    </div>
+                    <div class="flex flex-col gap-1.5">
+                        <label class="font-label-caps text-xs uppercase text-gray-500 dark:text-on-surface-variant/70">Nachricht</label>
+                        <textarea required rows="4" class="rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-charcoal-deep p-3 text-sm focus:border-primary focus:outline-none text-gray-900 dark:text-white"></textarea>
+                    </div>
+                    <button type="submit" class="w-full bg-primary dark:bg-primary-container text-white dark:text-on-primary-container font-label-caps text-xs uppercase py-3.5 rounded hover:bg-blue-600 dark:hover:bg-primary transition-all shadow-md font-bold">
+                        Anfrage Absenden
+                    </button>
+                </form>
+            </div>
+        </div>
+    </section>
+</main>
+
+<!-- Footer -->
+<footer class="w-full mt-auto bg-gray-50 dark:bg-surface-container-lowest border-t border-gray-200 dark:border-outline-variant/30 transition-colors duration-300">
+    <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter py-12 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+        <div class="col-span-1 md:col-span-1 flex flex-col gap-4">
+            <a class="flex items-center gap-3 opacity-80 hover:opacity-100 transition-opacity" href="index.html">
+                <img alt="General Safe Logo" class="h-8 w-auto" src="logo.png"/>
+                <span class="font-headline-lg-mobile text-headline-lg-mobile uppercase tracking-[0.18em] transition-colors">
+                    <span class="font-light text-gray-900 dark:text-gray-200">General</span><span class="font-bold text-primary">Safe</span>
+                </span>
+            </a>
+            <p class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant mt-2 max-w-xs transition-colors">
+                Exzellenz, Diskretion und Präzision in allen Sicherheitsfragen.
+            </p>
+        </div>
+        <div class="col-span-1 md:col-span-3 flex flex-wrap gap-x-8 gap-y-4 md:justify-end items-center">
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('impressum')">Impressum</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="openLegal('datenschutz')">Datenschutz</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="index.html#ueber-uns">Kontakt</a>
+            <a class="font-body-sm text-body-sm text-gray-600 dark:text-on-surface-variant hover:text-primary transition-colors hover:underline dark:hover:no-underline" href="javascript:void(0)" onclick="alert('AGB folgen in Kürze.')">AGB</a>
+        </div>
+        <div class="col-span-1 md:col-span-4 mt-8 pt-8 border-t border-gray-200 dark:border-outline-variant/10 text-center md:text-left transition-colors">
+            <p class="font-body-sm text-body-sm text-gray-500 dark:text-on-surface-variant/60 transition-colors">
+                © 2024 General Safe GmbH & Co. KG. Alle Rechte vorbehalten.
+            </p>
+        </div>
+    </div>
+</footer>
+
+<!-- Legal Modal (Impressum / Datenschutz) -->
+<div id="legal-modal" class="fixed inset-0 z-50 flex items-center justify-center p-4 opacity-0 pointer-events-none transition-opacity duration-300 ease-out bg-black/60 dark:bg-black/75 backdrop-blur-sm" onclick="closeLegal()">
+    <div id="legal-box" class="relative w-full max-w-3xl max-h-[85vh] flex flex-col rounded-xl overflow-hidden shadow-2xl border border-gray-200 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue transition-transform duration-300 ease-out transform scale-95" onclick="event.stopPropagation()">
+        <!-- Close Button -->
+        <button class="absolute top-4 right-4 z-10 p-2 rounded-full hover:bg-gray-100 dark:hover:bg-white/10 text-gray-500 dark:text-on-surface-variant transition-colors" onclick="closeLegal()" aria-label="Schließen">
+            <span class="material-symbols-outlined text-2xl">close</span>
+        </button>
+
+        <!-- Modal Header -->
+        <div class="p-6 md:p-8 border-b border-gray-100 dark:border-outline-variant/10 flex items-center gap-4 bg-gray-50/50 dark:bg-surface-container/20">
+            <div class="w-12 h-12 rounded bg-primary/10 dark:bg-primary/20 flex items-center justify-center text-primary shrink-0">
+                <span class="material-symbols-outlined text-3xl" id="legal-icon">gavel</span>
+            </div>
+            <div>
+                <h3 class="font-headline-lg text-lg sm:text-2xl text-gray-900 dark:text-on-surface font-bold leading-tight" id="legal-title">Impressum</h3>
+                <p class="font-label-caps text-xs text-primary uppercase tracking-widest mt-1" id="legal-subtitle">Rechtliche Hinweise</p>
+            </div>
+        </div>
+
+        <!-- Modal Content (Scrollable) -->
+        <div class="flex-grow overflow-y-auto p-6 md:p-8 space-y-6 text-gray-700 dark:text-on-surface-variant text-sm leading-relaxed" id="legal-content">
+            <!-- Dynamically populated -->
+        </div>
+
+        <!-- Modal Footer -->
+        <div class="p-6 border-t border-gray-100 dark:border-outline-variant/10 flex justify-end bg-gray-50/50 dark:bg-surface-container/20">
+            <button class="bg-gray-100 dark:bg-surface-variant hover:bg-gray-200 dark:hover:bg-white/10 text-gray-800 dark:text-on-surface font-label-caps text-xs uppercase px-6 py-2.5 rounded transition-colors" onclick="closeLegal()">Schließen</button>
+        </div>
+    </div>
+</div>
+
+<script>
+    // Theme toggle logic
+    const themeToggle = document.getElementById('theme-toggle');
+
+    themeToggle.addEventListener('click', () => {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('theme', 'dark');
+        }
+    });
+
+    // Mobile menu toggle logic
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    
+    mobileMenuBtn.addEventListener('click', () => {
+        const isOpen = mobileMenu.classList.contains('translate-x-0');
+        const iconSpan = mobileMenuBtn.querySelector('span');
+        if (isOpen) {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            iconSpan.textContent = 'menu';
+        } else {
+            mobileMenu.classList.remove('translate-x-full');
+            mobileMenu.classList.add('translate-x-0');
+            iconSpan.textContent = 'close';
+        }
+    });
+
+    // Close mobile menu when a link is clicked
+    mobileMenu.querySelectorAll('a').forEach(link => {
+        link.addEventListener('click', () => {
+            mobileMenu.classList.remove('translate-x-0');
+            mobileMenu.classList.add('translate-x-full');
+            mobileMenuBtn.querySelector('span').textContent = 'menu';
+        });
+    });
+
+    // Scroll effect for navbar
+    window.addEventListener('scroll', () => {
+        const nav = document.getElementById('main-nav');
+        if (window.scrollY > 20) {
+            nav.classList.add('shadow-md', 'dark:shadow-lg', 'bg-white/95', 'dark:bg-charcoal-deep/95', 'backdrop-blur-md');
+            nav.classList.remove('bg-white', 'dark:bg-charcoal-deep');
+        } else {
+            nav.classList.remove('shadow-md', 'dark:shadow-lg', 'bg-white/95', 'dark:bg-charcoal-deep/95', 'backdrop-blur-md');
+            nav.classList.add('bg-white', 'dark:bg-charcoal-deep');
+        }
+    });
+
+    // Intersection Observer for scroll reveal animations
+    const revealObserver = new IntersectionObserver((entries) => {
+        entries.forEach((entry) => {
+            if (entry.isIntersecting) {
+                entry.target.classList.add('active');
+                revealObserver.unobserve(entry.target);
+            }
+        });
+    }, {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    });
+
+    document.querySelectorAll('.reveal-fade-up').forEach((el) => {
+        revealObserver.observe(el);
+    });
+
+    // Legal details data
+    const legalDetails = {
+        impressum: {
+            title: "Impressum",
+            subtitle: "Rechtliche Angaben nach § 5 TMG",
+            icon: "gavel",
+            content: `
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">General Safe GmbH & Co. KG</h4>
+                        <p>Bürgermeister-Schade-Str. 18<br>24232 Schönkirchen</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Vertreten durch</h4>
+                        <p>Geschäftsführer: Ammar Jafar</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Kontakt</h4>
+                        <p>Telefon: folgt.<br>E-Mail: <a href="mailto:info@general-safe.com" class="text-primary hover:underline">info@general-safe.com</a><br>Webseite: <a href="https://www.general-safe.com" target="_blank" class="text-primary hover:underline">www.general-safe.com</a></p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Registereintrag</h4>
+                        <p>Registergericht: Amtsgericht Kiel<br>Registernummer: HRA 12907 K</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">Umsatzsteuer-ID</h4>
+                        <p>Umsatzsteuer-Identifikationsnummer gemäß § 27 a Umsatzsteuergesetz:<br>[USt-ID]: folgt.</p>
+                    </div>
+                </div>
+            `
+        },
+        datenschutz: {
+            title: "Datenschutzerklärung",
+            subtitle: "Informationen zum Datenschutz nach DSGVO",
+            icon: "security",
+            content: `
+                <div class="space-y-6">
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">1. Verantwortliche Stelle</h4>
+                        <p>General Safe GmbH & Co. KG<br>Bürgermeister-Schade-Str. 18<br>24232 Schönkirchen<br>E-Mail: <a href="mailto:info@general-safe.com" class="text-primary hover:underline">info@general-safe.com</a><br>Tel.: folgt.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">2. Weitergabe von Daten</h4>
+                        <p>Eine Weitergabe Ihrer persönlichen Daten erfolgt nur:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li>An Behörden im gesetzlichen Rahmen</li>
+                            <li>An Kunden im Rahmen der Sicherheitsdienstleistung (z. B. Vorfälle im Objektschutz)</li>
+                            <li>An IT- und Hosting-Dienstleister</li>
+                        </ul>
+                        <p class="mt-2">Es erfolgt keine Datenweitergabe außerhalb der Europäischen Union (EU), sofern nicht anders angegeben.</p>
+                    </div>
+                    <div>
+                        <h4 class="font-bold text-gray-950 dark:text-white text-base mb-2">3. Rechte der betroffenen Personen</h4>
+                        <p>Sie haben als betroffene Person jederzeit das Recht auf:</p>
+                        <ul class="list-disc pl-5 mt-2 space-y-1">
+                            <li><strong>Auskunft</strong> über Ihre gespeicherten Daten (Art. 15 DSGVO)</li>
+                            <li><strong>Berichtigung</strong> unrichtiger Daten (Art. 16 DSGVO)</li>
+                            <li><strong>Löschung</strong> Ihrer Daten (Art. 17 DSGVO)</li>
+                            <li><strong>Einschränkung</strong> der Verarbeitung (Art. 18 DSGVO)</li>
+                            <li><strong>Datenübertragbarkeit</strong> (Art. 20 DSGVO)</li>
+                            <li><strong>Widerspruch</strong> gegen die Verarbeitung (Art. 21 DSGVO)</li>
+                        </ul>
+                    </div>
+                </div>
+            `
+        }
+    };
+
+    function openLegal(type) {
+        const data = legalDetails[type];
+        if (!data) return;
+
+        document.getElementById('legal-title').textContent = data.title;
+        document.getElementById('legal-subtitle').textContent = data.subtitle;
+        document.getElementById('legal-icon').textContent = data.icon;
+        document.getElementById('legal-content').innerHTML = data.content;
+
+        const modal = document.getElementById('legal-modal');
+        const modalBox = document.getElementById('legal-box');
+        
+        modal.classList.remove('opacity-0', 'pointer-events-none');
+        modal.classList.add('opacity-100');
+        modalBox.classList.remove('scale-95');
+        modalBox.classList.add('scale-100');
+        
+        document.body.style.overflow = 'hidden';
+    }
+
+    function closeLegal() {
+        const modal = document.getElementById('legal-modal');
+        const modalBox = document.getElementById('legal-box');
+        
+        modal.classList.remove('opacity-100');
+        modal.classList.add('opacity-0', 'pointer-events-none');
+        modalBox.classList.remove('scale-100');
+        modalBox.classList.add('scale-95');
+        
+        document.body.style.overflow = '';
+    }
+
+    // Event listener for Escape key
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            closeLegal();
+        }
+    });
+</script>
+</body>
+</html>
