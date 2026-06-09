@@ -101,7 +101,7 @@ class GeneralSafeBot {
                 position: fixed;
                 bottom: 24px;
                 right: 24px;
-                z-index: 1000;
+                z-index: 30;
                 font-family: 'Inter', sans-serif;
                 display: flex;
                 flex-direction: column;
