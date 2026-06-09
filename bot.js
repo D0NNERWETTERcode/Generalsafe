@@ -106,6 +106,7 @@ class GeneralSafeBot {
                 display: flex;
                 flex-direction: column;
                 align-items: flex-end;
+                pointer-events: none;
             }
             .gs-chat-trigger {
                 width: 60px;
@@ -120,6 +121,7 @@ class GeneralSafeBot {
                 align-items: center;
                 justify-content: center;
                 transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+                pointer-events: auto;
             }
             .gs-chat-trigger:hover {
                 transform: scale(1.05) translateY(-2px);
