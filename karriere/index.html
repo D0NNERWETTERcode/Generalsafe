@@ -1049,7 +1049,7 @@
                 form.classList.add('hidden');
                 document.getElementById('apply-success-message').classList.remove('hidden');
             } else {
-                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder senden Sie uns Ihre Bewerbung direkt per E-Mail.');
+                alert('Fehler: ' + (data.message || 'Ein unbekannter Fehler ist aufgetreten.') + '\n\nBitte versuchen Sie es erneut oder senden Sie uns Ihre Bewerbung direkt per E-Mail an info@general-safe.de.');
             }
         })
         .catch(error => {
