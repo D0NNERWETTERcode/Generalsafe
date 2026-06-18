@@ -558,7 +558,59 @@ class GeneralSafeBot {
     }
 }
 
+// Cookie Consent Banner
+function initCookieBanner() {
+    if (localStorage.getItem('cookieConsent')) return;
+
+    // Inject Cookie Consent Banner HTML
+    const banner = document.createElement('div');
+    banner.id = 'cookie-banner';
+    banner.className = 'fixed bottom-6 left-6 right-6 md:left-auto md:right-6 md:max-w-sm z-[9999] p-5 rounded-2xl glass-card transition-all duration-500 ease-out translate-y-12 opacity-0 flex flex-col gap-4';
+    
+    banner.innerHTML = `
+        <div class="flex items-start gap-3">
+            <div class="p-2 rounded-lg bg-primary/10 text-primary shrink-0 flex items-center justify-center">
+                <span class="material-symbols-outlined text-2xl" style="font-family: 'Material Symbols Outlined';">cookie</span>
+            </div>
+            <div>
+                <h4 class="font-bold text-sm text-gray-900 dark:text-white">Cookie-Einstellungen</h4>
+                <p class="text-xs text-gray-600 dark:text-on-surface-variant/80 mt-1 leading-relaxed">
+                    Wir verwenden Cookies, um unsere Website optimal zu gestalten und fortlaufend zu verbessern. Mit dem Klick auf "Alle akzeptieren" willigen Sie in diese Verarbeitung ein. Weitere Details finden Sie in unserer <a href="javascript:void(0)" id="cookie-privacy-link" class="text-primary hover:underline font-semibold">Datenschutzerklärung</a>.
+                </p>
+            </div>
+        </div>
+        <div class="flex justify-end gap-3 text-xs pt-1">
+            <button id="cookie-decline" class="px-4 py-2 rounded font-semibold text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-white/5 transition-colors">Ablehnen</button>
+            <button id="cookie-accept" class="px-5 py-2 bg-primary text-white hover:bg-blue-600 dark:hover:bg-blue-500 rounded font-semibold transition-colors shadow-md shadow-primary/15">Alle akzeptieren</button>
+        </div>
+    `;
+
+    document.body.appendChild(banner);
+
+    // Show banner with animation
+    setTimeout(() => {
+        banner.classList.remove('translate-y-12', 'opacity-0');
+    }, 100);
+
+    const closeBanner = (consent) => {
+        localStorage.setItem('cookieConsent', consent);
+        banner.classList.add('translate-y-12', 'opacity-0');
+        setTimeout(() => banner.remove(), 500);
+    };
+
+    document.getElementById('cookie-accept').addEventListener('click', () => closeBanner('accepted'));
+    document.getElementById('cookie-decline').addEventListener('click', () => closeBanner('declined'));
+    document.getElementById('cookie-privacy-link').addEventListener('click', () => {
+        if (window.openLegal) {
+            window.openLegal('datenschutz');
+        } else {
+            window.location.href = '/#datenschutz';
+        }
+    });
+}
+
 // Initialize on page load
 document.addEventListener('DOMContentLoaded', () => {
     window.generalSafeBot = new GeneralSafeBot();
+    initCookieBanner();
 });
