@@ -533,22 +533,22 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label for="apply-name" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Vollständiger Name *</label>
-                        <input type="text" id="apply-name" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <input type="text" id="apply-name" name="name" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                     </div>
                     <div class="space-y-2">
                         <label for="apply-email" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">E-Mail-Adresse *</label>
-                        <input type="email" id="apply-email" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <input type="email" id="apply-email" name="email" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label for="apply-phone" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Telefonnummer *</label>
-                        <input type="tel" id="apply-phone" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <input type="tel" id="apply-phone" name="phone" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                     </div>
                     <div class="space-y-2">
                         <label for="apply-qualification" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Qualifikation (§ 34a Status) *</label>
-                        <select id="apply-qualification" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <select id="apply-qualification" name="qualification" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                             <option value="" disabled selected>Bitte wählen...</option>
                             <option value="Sachkundeprüfung nach § 34a GewO">Sachkundeprüfung nach § 34a GewO</option>
                             <option value="Unterrichtung nach § 34a GewO">Unterrichtung nach § 34a GewO</option>
@@ -560,7 +560,7 @@
 
                 <div class="space-y-2">
                     <label for="apply-message" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Nachricht / Anschreiben (Optional)</label>
-                    <textarea id="apply-message" rows="3" class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary resize-none" placeholder="Erzählen Sie uns kurz von sich..."></textarea>
+                    <textarea id="apply-message" name="message" rows="3" class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary resize-none" placeholder="Erzählen Sie uns kurz von sich..."></textarea>
                 </div>
 
                 <div class="space-y-2">
@@ -575,7 +575,7 @@
                 </div>
 
                 <div class="flex items-start gap-2 pt-2">
-                    <input type="checkbox" id="apply-privacy" required class="mt-1 rounded text-primary border-gray-300 dark:border-outline-variant/20 focus:ring-primary focus:ring-opacity-50">
+                    <input type="checkbox" id="apply-privacy" name="privacy_agreed" required class="mt-1 rounded text-primary border-gray-300 dark:border-outline-variant/20 focus:ring-primary focus:ring-opacity-50">
                     <label for="apply-privacy" class="text-xs text-gray-500 dark:text-on-surface-variant/80">Ich stimme zu, dass meine Daten zur Bearbeitung meiner Bewerbung gespeichert und verarbeitet werden. *</label>
                 </div>
 
@@ -627,22 +627,22 @@
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label for="inquiry-name" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Name / Unternehmen *</label>
-                        <input type="text" id="inquiry-name" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <input type="text" id="inquiry-name" name="name" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                     </div>
                     <div class="space-y-2">
                         <label for="inquiry-email" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">E-Mail-Adresse *</label>
-                        <input type="email" id="inquiry-email" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <input type="email" id="inquiry-email" name="email" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                     </div>
                 </div>
 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-2">
                         <label for="inquiry-phone" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Telefonnummer *</label>
-                        <input type="tel" id="inquiry-phone" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <input type="tel" id="inquiry-phone" name="phone" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                     </div>
                     <div class="space-y-2">
                         <label for="inquiry-service" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Gewünschte Leistung *</label>
-                        <select id="inquiry-service" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue text-gray-900 dark:text-white focus:outline-none focus:border-primary">
+                        <select id="inquiry-service" name="service" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-white dark:bg-midnight-blue text-gray-900 dark:text-white focus:outline-none focus:border-primary">
                             <option value="" disabled selected>Bitte wählen...</option>
                             <option value="Revierfahrer">Revierfahrer</option>
                             <option value="Detektei & Ermittlingsdienst">Detektei & Ermittlungsdienst</option>
@@ -658,11 +658,11 @@
 
                 <div class="space-y-2">
                     <label for="inquiry-message" class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Details zu Ihrer Anfrage *</label>
-                    <textarea id="inquiry-message" rows="4" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary resize-none" placeholder="Beschreiben Sie kurz Ihr Vorhaben, den Zeitraum oder besondere Anforderungen..."></textarea>
+                    <textarea id="inquiry-message" name="message" rows="4" required class="w-full px-4 py-2.5 rounded border border-gray-300 dark:border-outline-variant/20 bg-transparent text-gray-900 dark:text-white focus:outline-none focus:border-primary resize-none" placeholder="Beschreiben Sie kurz Ihr Vorhaben, den Zeitraum oder besondere Anforderungen..."></textarea>
                 </div>
 
                 <div class="flex items-start gap-2 pt-2">
-                    <input type="checkbox" id="inquiry-privacy" required class="mt-1 rounded text-primary border-gray-300 dark:border-outline-variant/20 focus:ring-primary focus:ring-opacity-50">
+                    <input type="checkbox" id="inquiry-privacy" name="privacy_agreed" required class="mt-1 rounded text-primary border-gray-300 dark:border-outline-variant/20 focus:ring-primary focus:ring-opacity-50">
                     <label for="inquiry-privacy" class="text-xs text-gray-500 dark:text-on-surface-variant/80">Ich stimme zu, dass meine Angaben zur Kontaktaufnahme und Beantwortung meiner Anfrage gespeichert und verarbeitet werden. *</label>
                 </div>
 
@@ -1018,8 +1018,45 @@
 
     function handleApplySubmit(e) {
         e.preventDefault();
-        document.getElementById('apply-form').classList.add('hidden');
-        document.getElementById('apply-success-message').classList.remove('hidden');
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet...';
+
+        const formData = new FormData(form);
+        formData.append('access_key', '7623b342-886c-432f-9d39-7201b6f1ba9e');
+        formData.append('subject', `Neue Bewerbung für: ${document.getElementById('apply-job-title').value || 'Sicherheitskraft'} über general-safe.de`);
+
+        // Append all files selected in drag & drop uploader
+        selectedFiles.forEach((file, index) => {
+            if (index === 0) {
+                formData.append('attachment', file);
+            } else {
+                formData.append(`attachment_${index + 1}`, file);
+            }
+        });
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            if (data.success) {
+                form.classList.add('hidden');
+                document.getElementById('apply-success-message').classList.remove('hidden');
+            } else {
+                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder senden Sie uns Ihre Bewerbung direkt per E-Mail.');
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            alert('Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung.');
+        });
     }
 
     // Inquiry Modal functions
@@ -1074,8 +1111,36 @@
 
     function handleInquirySubmit(e) {
         e.preventDefault();
-        document.getElementById('inquiry-form').classList.add('hidden');
-        document.getElementById('inquiry-success-message').classList.remove('hidden');
+        const form = e.target;
+        const submitBtn = form.querySelector('button[type="submit"]');
+        const originalText = submitBtn.textContent;
+        submitBtn.disabled = true;
+        submitBtn.textContent = 'Wird gesendet...';
+
+        const formData = new FormData(form);
+        formData.append('access_key', '7623b342-886c-432f-9d39-7201b6f1ba9e');
+        formData.append('subject', 'Neue Anfrage über general-safe.de');
+
+        fetch('https://api.web3forms.com/submit', {
+            method: 'POST',
+            body: formData
+        })
+        .then(response => response.json())
+        .then(data => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            if (data.success) {
+                form.classList.add('hidden');
+                document.getElementById('inquiry-success-message').classList.remove('hidden');
+            } else {
+                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder senden Sie uns direkt eine E-Mail.');
+            }
+        })
+        .catch(error => {
+            submitBtn.disabled = false;
+            submitBtn.textContent = originalText;
+            alert('Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung.');
+        });
     }
 </script>
 <script src="bot.js"></script>
