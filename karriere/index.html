@@ -527,8 +527,11 @@
 
         <!-- Modal Content (Scrollable) -->
         <div class="flex-grow overflow-y-auto p-4 md:p-8" id="apply-modal-content">
-            <form id="apply-form" class="space-y-4 md:space-y-6" onsubmit="handleApplySubmit(event)">
+            <form id="apply-form" class="space-y-4 md:space-y-6" action="https://formsubmit.co/info@general-safe.de" method="POST" enctype="multipart/form-data" onsubmit="handleApplySubmit(event)">
                 <input type="hidden" id="apply-job-title" name="job_title" value="">
+                <input type="hidden" name="_next" value="https://general-safe.de/karriere/?success=true">
+                <input type="hidden" name="_captcha" value="false">
+                <input type="hidden" id="apply-subject" name="_subject" value="Neue Bewerbung über general-safe.de">
                 
                 <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
                     <div class="space-y-2">
@@ -566,7 +569,7 @@
                 <div class="space-y-2">
                     <label class="block text-xs uppercase tracking-wider font-semibold text-gray-700 dark:text-gray-300">Lebenslauf & Zertifikate (Drag & Drop)</label>
                     <div id="drop-zone" class="border-2 border-dashed border-gray-300 dark:border-outline-variant/40 rounded-lg p-6 text-center cursor-pointer hover:border-primary dark:hover:border-primary transition-colors duration-200">
-                        <input type="file" id="file-input" class="hidden" multiple accept=".pdf,.doc,.docx,.jpg,.png">
+                        <input type="file" id="file-input" name="attachment" class="hidden" multiple accept=".pdf,.doc,.docx,.jpg,.png">
                         <span class="material-symbols-outlined text-4xl text-gray-400 dark:text-gray-500 mb-2">upload_file</span>
                         <p class="text-sm text-gray-600 dark:text-gray-400">Dateien hierher ziehen oder <span class="text-primary hover:underline font-semibold">durchsuchen</span></p>
                         <p class="text-xs text-gray-500 dark:text-gray-500 mt-1">Erlaubt: PDF, Word, JPG, PNG (Max. 10MB gesamt)</p>
@@ -1017,55 +1020,33 @@
     }
 
     function handleApplySubmit(e) {
-        e.preventDefault();
-        const form = e.target;
-        const submitBtn = form.querySelector('button[type="submit"]');
-        const originalText = submitBtn.textContent;
-        submitBtn.disabled = true;
-        submitBtn.textContent = 'Wird gesendet...';
+        // Set the dynamic subject
+        const jobTitle = document.getElementById('apply-job-title').value || 'Sicherheitskraft';
+        document.getElementById('apply-subject').value = `Neue Bewerbung für: ${jobTitle} über general-safe.de`;
 
-        const formData = new FormData(form);
-        formData.append('_subject', `Neue Bewerbung für: ${document.getElementById('apply-job-title').value || 'Sicherheitskraft'} über general-safe.de`);
-        formData.append('_captcha', 'false');
+        // Transfer files
+        if (selectedFiles.length > 0) {
+            const dataTransfer = new DataTransfer();
+            selectedFiles.forEach(file => dataTransfer.items.add(file));
+            document.getElementById('file-input').files = dataTransfer.files;
+        }
 
-        // Append all files selected in drag & drop uploader
-        selectedFiles.forEach((file, index) => {
-            if (index === 0) {
-                formData.append('attachment', file);
-            } else {
-                formData.append(`attachment_${index + 1}`, file);
-            }
-        });
-
-        fetch('https://formsubmit.co/ajax/info@general-safe.de', {
-            method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
-        })
-        .then(response => {
-            if (!response.ok) {
-                throw new Error('Server-Fehler bei FormSubmit');
-            }
-            return response.json();
-        })
-        .then(data => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            if (data.success === 'true' || data.success === true) {
-                form.classList.add('hidden');
-                document.getElementById('apply-success-message').classList.remove('hidden');
-            } else {
-                alert('Fehler: ' + (data.message || 'Das Formular konnte nicht verarbeitet werden.') + '\n\nBitte prüfen Sie Ihr Postfach (info@general-safe.de) auf eine Aktivierungs-E-Mail von FormSubmit und bestätigen Sie diese, falls dies die erste Bewerbung war.');
-            }
-        })
-        .catch(error => {
-            submitBtn.disabled = false;
-            submitBtn.textContent = originalText;
-            alert('Netzwerkfehler oder Server-Fehler bei FormSubmit. Bitte überprüfen Sie Ihre Internetverbindung oder senden Sie uns Ihre Bewerbung direkt per E-Mail an info@general-safe.de.');
-        });
+        const submitBtn = e.target.querySelector('button[type="submit"]');
+        setTimeout(() => {
+            submitBtn.disabled = true;
+            submitBtn.textContent = 'Wird gesendet...';
+        }, 10);
     }
+
+    document.addEventListener('DOMContentLoaded', () => {
+        const urlParams = new URLSearchParams(window.location.search);
+        if (urlParams.get('success') === 'true') {
+            openApplyModal('Bewerbung');
+            document.getElementById('apply-form').classList.add('hidden');
+            document.getElementById('apply-success-message').classList.remove('hidden');
+            window.history.replaceState({}, document.title, window.location.pathname);
+        }
+    });
 
     // Inquiry Modal functions
     function openInquiryModal(serviceName = '') {
