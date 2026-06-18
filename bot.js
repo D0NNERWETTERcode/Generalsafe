@@ -9,7 +9,7 @@ const GENERAL_SAFE_KB = {
         name: "General Safe GmbH & Co. KG",
         address: "Bürgermeister-Schade-Str. 18, 24232 Schönkirchen",
         location: "Kiel / Schönkirchen, Schleswig-Holstein",
-        email: "info@general-safe.com",
+        email: "info@general-safe.de",
         managing_director: "Ammar Jafar",
         register: "Amtsgericht Kiel (HRA 12907 K)",
         availability: "24/7 Einsatzbereitschaft, ständige Erreichbarkeit",
