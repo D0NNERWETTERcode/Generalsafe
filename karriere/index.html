@@ -1025,8 +1025,8 @@
         submitBtn.textContent = 'Wird gesendet...';
 
         const formData = new FormData(form);
-        formData.append('access_key', '7623b342-886c-432f-9d39-7201b6f1ba9e');
-        formData.append('subject', `Neue Bewerbung für: ${document.getElementById('apply-job-title').value || 'Sicherheitskraft'} über general-safe.de`);
+        formData.append('_subject', `Neue Bewerbung für: ${document.getElementById('apply-job-title').value || 'Sicherheitskraft'} über general-safe.de`);
+        formData.append('_captcha', 'false');
 
         // Append all files selected in drag & drop uploader
         selectedFiles.forEach((file, index) => {
@@ -1037,25 +1037,33 @@
             }
         });
 
-        fetch('https://api.web3forms.com/submit', {
+        fetch('https://formsubmit.co/ajax/info@general-safe.de', {
             method: 'POST',
-            body: formData
+            body: formData,
+            headers: {
+                'Accept': 'application/json'
+            }
         })
-        .then(response => response.json())
+        .then(response => {
+            if (!response.ok) {
+                throw new Error('Server-Fehler bei FormSubmit');
+            }
+            return response.json();
+        })
         .then(data => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-            if (data.success) {
+            if (data.success === 'true' || data.success === true) {
                 form.classList.add('hidden');
                 document.getElementById('apply-success-message').classList.remove('hidden');
             } else {
-                alert('Fehler: ' + (data.message || 'Ein unbekannter Fehler ist aufgetreten.') + '\n\nBitte versuchen Sie es erneut oder senden Sie uns Ihre Bewerbung direkt per E-Mail an info@general-safe.de.');
+                alert('Fehler: ' + (data.message || 'Das Formular konnte nicht verarbeitet werden.') + '\n\nBitte prüfen Sie Ihr Postfach (info@general-safe.de) auf eine Aktivierungs-E-Mail von FormSubmit und bestätigen Sie diese, falls dies die erste Bewerbung war.');
             }
         })
         .catch(error => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-            alert('Netzwerkfehler. Bitte überprüfen Sie Ihre Internetverbindung.');
+            alert('Netzwerkfehler oder Server-Fehler bei FormSubmit. Bitte überprüfen Sie Ihre Internetverbindung oder senden Sie uns Ihre Bewerbung direkt per E-Mail an info@general-safe.de.');
         });
     }
 
