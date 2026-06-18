@@ -508,7 +508,7 @@ class GeneralSafeBot {
             <br><br>
             <strong>Wichtigste Voraussetzungen:</strong> ${GENERAL_SAFE_KB.careers.requirements}
             <br><br>
-            Bewerben Sie sich ganz einfach per E-Mail an <a href="mailto:${GENERAL_SAFE_KB.company.email}" style="color: #0090d4; text-decoration: underline;">${GENERAL_SAFE_KB.company.email}</a> oder nutzen Sie das Bewerbungsformular auf unserer <a href="karriere.html" style="color: #0090d4; text-decoration: underline;">Karriere-Seite</a>.`;
+            Bewerben Sie sich ganz einfach per E-Mail an <a href="mailto:${GENERAL_SAFE_KB.company.email}" style="color: #0090d4; text-decoration: underline;">${GENERAL_SAFE_KB.company.email}</a> oder nutzen Sie das Bewerbungsformular auf unserer <a href="karriere/" style="color: #0090d4; text-decoration: underline;">Karriere-Seite</a>.`;
             return response;
         }
 
