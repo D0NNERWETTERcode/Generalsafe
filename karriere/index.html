@@ -1026,8 +1026,8 @@
         submitBtn.textContent = 'Wird gesendet...';
 
         const formData = new FormData(form);
-        formData.append('_subject', `Neue Bewerbung für: ${document.getElementById('apply-job-title').value || 'Sicherheitskraft'} über general-safe.de`);
-        formData.append('_captcha', 'false');
+        formData.append('form_type', 'application');
+        formData.append('subject', `Neue Bewerbung für: ${document.getElementById('apply-job-title').value || 'Sicherheitskraft'} über general-safe.de`);
 
         // Append files dynamically
         selectedFiles.forEach((file, index) => {
@@ -1038,33 +1038,24 @@
             }
         });
 
-        fetch('https://formsubmit.co/ajax/info@general-safe.de', {
+        fetch('https://hook.eu1.make.com/h9ke4pa4pewmjpzwfv2yk2y15bobd9rs', {
             method: 'POST',
-            body: formData,
-            headers: {
-                'Accept': 'application/json'
-            }
+            body: formData
         })
         .then(response => {
-            if (!response.ok) {
-                throw new Error('Server-Fehler bei FormSubmit');
-            }
-            return response.json();
-        })
-        .then(data => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-            if (data.success === 'true' || data.success === true) {
+            if (response.ok) {
                 form.classList.add('hidden');
                 document.getElementById('apply-success-message').classList.remove('hidden');
             } else {
-                alert('Fehler: ' + (data.message || 'Das Formular konnte nicht verarbeitet werden.'));
+                alert('Ein Fehler ist aufgetreten. Bitte versuchen Sie es erneut oder senden Sie uns Ihre Bewerbung direkt per E-Mail.');
             }
         })
         .catch(error => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-            alert('Netzwerkfehler oder Server-Fehler bei FormSubmit. Bitte senden Sie uns Ihre Bewerbung direkt per E-Mail an info@general-safe.de.');
+            alert('Netzwerkfehler oder Server-Fehler bei Make.com. Bitte senden Sie uns Ihre Bewerbung direkt per E-Mail an info@general-safe.de.');
         });
     }
 
@@ -1127,18 +1118,17 @@
         submitBtn.textContent = 'Wird gesendet...';
 
         const formData = new FormData(form);
-        formData.append('access_key', '7623b342-886c-432f-9d39-7201b6f1ba9e');
+        formData.append('form_type', 'inquiry');
         formData.append('subject', 'Neue Anfrage über general-safe.de');
 
-        fetch('https://api.web3forms.com/submit', {
+        fetch('https://hook.eu1.make.com/h9ke4pa4pewmjpzwfv2yk2y15bobd9rs', {
             method: 'POST',
             body: formData
         })
-        .then(response => response.json())
-        .then(data => {
+        .then(response => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-            if (data.success) {
+            if (response.ok) {
                 form.classList.add('hidden');
                 document.getElementById('inquiry-success-message').classList.remove('hidden');
             } else {
