@@ -954,17 +954,18 @@
         submitBtn.textContent = 'Wird gesendet...';
 
         const formData = new FormData(form);
-        formData.append('form_type', 'inquiry');
+        formData.append('access_key', '7623b342-886c-432f-9d39-7201b6f1ba9e');
         formData.append('subject', 'Neue Anfrage über general-safe.de');
 
-        fetch('https://hook.eu1.make.com/h9ke4pa4pewmjpzwfv2yk2y15bobd9rs', {
+        fetch('https://api.web3forms.com/submit', {
             method: 'POST',
             body: formData
         })
-        .then(response => {
+        .then(response => response.json())
+        .then(data => {
             submitBtn.disabled = false;
             submitBtn.textContent = originalText;
-            if (response.ok) {
+            if (data.success) {
                 form.classList.add('hidden');
                 document.getElementById('inquiry-success-message').classList.remove('hidden');
             } else {
